@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mente Inabalável | Blindagem Mental Baseada em Epicteto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#121212',
+                        darkGray: '#1a1a1a',
+                        redAccent: '#ef4444',
+                        redGradient: {
+                            start: '#ef4444',
+                            end: '#f87171',
+                        }
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif']
+                    },
+                    backgroundImage: {
+                        'red-gradient': 'linear-gradient(135deg, #ef4444, #f87171)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #1a1a1a;
+            color: white;
+            scroll-behavior: smooth;
+        }
+        
+        .testimonial-card {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #ef4444, #f87171);
+        }
+        
+        .offer-card {
+            transition: all 0.3s ease;
+        }
+        
+        .offer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+        }
+        
+        .btn-gradient {
+            background: linear-gradient(135deg, #ef4444, #f87171);
+            border-radius: 9999px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+        
+        .btn-gradient:hover {
+            background: linear-gradient(135deg, #dc2626, #ef4444);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+        }
+        
+        .feature-bg {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+        }
+        
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(to right, transparent, #ef4444, #f87171, transparent);
+            margin: 5rem 0;
+        }
+        
+        .border-gradient {
+            border: 2px solid transparent;
+            border-radius: 16px;
+            background-clip: padding-box;
+            position: relative;
+            background: rgba(26, 26, 26, 0.7);
+        }
+        
+        .border-gradient::after {
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, #ef4444, #f87171);
+            content: '';
+            z-index: -1;
+            border-radius: 16px;
+        }
+        
+        .red-gradient-text {
+            background: linear-gradient(135deg, #ef4444, #f87171);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="font-poppins">
+    <!-- Hero Section -->
+    <section class="py-20 px-4 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <div class="bg-gradient-to-r from-red-500 to-red-400 w-full h-full transform rotate-12"></div>
+        </div>
+                
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="text-center mb-6">
+                <div class="inline-block mb-4">
+                    <span class="bg-gradient-to-r from-red-500 to-red-400 text-white text-sm px-4 py-1 rounded-full font-bold uppercase">Um Método Revolucionário</span>
+                </div>
+            </div>
+                        
+            <h1 class="text-5xl md:text-7xl font-bold text-center leading-tight mb-6">
+                COMO FAZER COM QUE <span class="red-gradient-text">NINGUÉM NEM NADA</span><br>TE AFETE <span class="red-gradient-text">NUNCA!</span>
+            </h1>
+                        
+            <p class="text-xl text-center max-w-2xl mx-auto mb-12">
+                Descubra como blindar sua mente para que nada – nem ninguém – te derrube de novo.
+            </p>
+                        
+            <div class="bg-gray-800 bg-opacity-50 rounded-xl max-w-2xl mx-auto text-center p-4 mb-10">
+                <p class="text-red-400 italic">
+                    Um método simples, inspirado no estoicismo de Epicteto, que mostra como reorganizar sua mente, recuperar sua força interior e voltar a dominar a própria vida — mesmo em meio às dívidas, crises emocionais, solidão ou pressão familiar.
+                </p>
+            </div>
+                        
+            <div class="text-center mb-6">
+                <p class="text-2xl font-bold">
+                    <span class="red-gradient-text">Assista agora</span> e entenda por que isso irá funcionar para você.
+                </p>
+            </div>
+                        
+            <!-- VSL Embed -->
+            <div class="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl">
+                <div id="vid_683fa0869a98288a4eb406e8" style="position: relative; width: 100%; padding: 133.33333333333331% 0 0;">
+                    <img id="thumb_683fa0869a98288a4eb406e8" src="https://images.converteai.net/751abf94-7b61-4139-9bd2-92a8e5c430a1/players/683fa0869a98288a4eb406e8/thumbnail.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block;" alt="thumbnail">
+                    <div id="backdrop_683fa0869a98288a4eb406e8" style="-webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); position: absolute; top: 0; height: 100%; width: 100%; "></div>
+                </div>
+                <script type="text/javascript" id="scr_683fa0869a98288a4eb406e8">
+                    var s=document.createElement("script");
+                    s.src="https://scripts.converteai.net/751abf94-7b61-4139-9bd2-92a8e5c430a1/players/683fa0869a98288a4eb406e8/player.js", s.async=!0,document.head.appendChild(s);
+                </script>
+            </div>
+        </div>
+    </section>
+        
+    <!-- Section Button -->
+    <div class="max-w-6xl mx-auto px-4 py-6 text-center">
+        <button onclick="document.getElementById('oferta').scrollIntoView({ behavior: 'smooth' });" class="btn-gradient px-8 py-4 text-white font-bold">
+            QUERO MINHA MENTE INABALÁVEL AGORA
+        </button>
+    </div>
+        
+    <!-- Problem Section -->
+    <section class="py-20 px-4 bg-dark">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-10 text-center">
+                <span class="red-gradient-text">O QUE ESTÁ TE AFETANDO</span> HOJE?
+            </h2>
+                        
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="border-gradient p-8">
+                    <div class="mb-6">
+                        <div class="bg-gradient-to-r from-red-500 to-red-400 w-14 h-14 rounded-full flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="text-xl mb-4">
+                        Você já percebeu que quando tudo desmorona por fora... A primeira coisa que desaba é a sua mente?
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                            <span>É ela que te faz perder o controle.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                            <span>É ela que alimenta o medo, a raiva, a culpa.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                            <span>E é ela que te mantém preso em ciclos que você não consegue mais sair sozinho.</span>
+                        </li>
+                    </ul>
+                </div>
+                                
+                <div class="border-gradient p-8">
+                    <div class="mb-6">
+                        <div class="bg-gradient-to-r from-red-500 to-red-400 w-14 h-14 rounded-full flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 red-gradient-text">
+                        O VERDADEIRO INIMIGO:
+                    </h3>
+                    <p class="text-xl mb-4">
+                        Não são só as dívidas. Não é só a solidão. Nem os outros.
+                    </p>
+                    <p class="text-lg">
+                        É a forma como você está reagindo a tudo isso — emocionalmente vulnerável, sem força interna.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+        
+    <!-- Section Button -->
+    <div class="max-w-6xl mx-auto px-4 py-6 text-center">
+        <button onclick="document.getElementById('oferta').scrollIntoView({ behavior: 'smooth' });" class="btn-gradient px-8 py-4 text-white font-bold">
+            NÃO QUERO MAIS SER VULNERÁVEL
+        </button>
+    </div>
+        
+    <!-- Solution Section -->
+    <section class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center">
+                <span class="red-gradient-text">O CÓDIGO DA MENTE INABALÁVEL</span>
+            </h2>
+                        
+            <p class="text-xl text-center max-w-3xl mx-auto mb-12">
+                Um método direto, moderno e poderoso — inspirado em Epicteto, o estoico que venceu tudo sem ter nada. Um sistema real, testado, estruturado.
+            </p>
+                        
+            <div class="bg-gray-800 bg-opacity-50 rounded-2xl p-6 mb-12">
+                <p class="text-xl text-center italic">
+                    Esse não é um conteúdo motivacional. É um sistema prático e aplicável, que reconstrói a sua base mental e te devolve o controle real sobre as suas emoções, decisões e reações.
+                </p>
+            </div>
+                        
+            <div class="border-gradient p-6 md:p-8">
+                <h3 class="text-2xl font-bold mb-6 text-center red-gradient-text">
+                    O QUE ESSE MÉTODO FAZ COM VOCÊ:
+                </h3>
+                                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="feature-bg p-6 rounded-xl">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-gradient-to-r from-red-500 to-red-400 w-8 h-8 rounded-full flex items-center justify-center mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <h4 class="font-bold">Clareza Mental</h4>
+                        </div>
+                        <p>
+                            Pra sair do caos financeiro e parar de se sabotar.
+                        </p>
+                    </div>
+                                        
+                    <div class="feature-bg p-6 rounded-xl">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-gradient-to-r from-red-500 to-red-400 w-8 h-8 rounded-full flex items-center justify-center mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <h4 class="font-bold">Fortaleza Mental</h4>
+                        </div>
+                        <p>
+                            Contra críticas, rejeição e solidão.
+                        </p>
+                    </div>
+                                        
+                    <div class="feature-bg p-6 rounded-xl">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-gradient-to-r from-red-500 to-red-400 w-8 h-8 rounded-full flex items-center justify-center mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <h4 class="font-bold">Criação de Limites</h4>
+                        </div>
+                        <p>
+                            Sem culpa e recupere sua energia.
+                        </p>
+                    </div>
+                                        
+                    <div class="feature-bg p-6 rounded-xl">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-gradient-to-r from-red-500 to-red-400 w-8 h-8 rounded-full flex items-center justify-center mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <h4 class="font-bold">Controle da Ansiedade</h4>
+                        </div>
+                        <p>
+                            Estabilize suas emoções de forma permanente.
+                        </p>
+                    </div>
+                                        
+                    <div class="feature-bg p-6 rounded-xl col-span-full mx-auto max-w-md">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-gradient-to-r from-red-500 to-red-400 w-8 h-8 rounded-full flex items-center justify-center mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <h4 class="font-bold">Liberdade Emocional</h4>
+                        </div>
+                        <p>
+                            Livre-se da necessidade de aprovação e do medo de julgamento.
+                        </p>
+                    </div>
+                </div>
+            </div>
+                        
+            <!-- Before/After Comparison -->
+            <div class="grid md:grid-cols-2 gap-8 mt-16">
+                <div class="border-gradient p-8">
+                    <h3 class="text-2xl font-bold mb-6 red-gradient-text text-center">
+                        ANTES DO MÉTODO
+                    </h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-center">
+                            <div class="bg-red-500 rounded-full p-2 mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </div>
+                            <span>Você explode por qualquer coisa</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="bg-red-500 rounded-full p-2 mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </div>
+                            <span>Se sabota sem perceber</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="bg-red-500 rounded-full p-2 mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </div>
+                            <span>Se sente fraco, perdido, sem energia</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="bg-red-500 rounded-full p-2 mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </div>
+                            <span>Engole tudo em silêncio</span>
+                        </li>
+                    </ul>
+                </div>
+                                
+                <div class="border-gradient p-8">
+                    <h3 class="text-2xl font-bold mb-6 red-gradient-text text-center">
+                        DEPOIS DO MÉTODO
+                    </h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-center">
+                            <div class="bg-green-500 rounded-full p-2 mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                            </div>
+                            <span>Você domina suas emoções</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="bg-green-500 rounded-full p-2 mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                            </div>
+                            <span>Cria limites sem culpa</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="bg-green-500 rounded-full p-2 mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                            </div>
+                            <span>Recupera foco e controle</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="bg-green-500 rounded-full p-2 mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                            </div>
+                            <span>Se torna emocionalmente intocável</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+        
+    <!-- Section Button -->
+    <div class="max-w-6xl mx-auto px-4 py-6 text-center">
+        <button onclick="document.getElementById('oferta').scrollIntoView({ behavior: 'smooth' });" class="btn-gradient px-8 py-4 text-white font-bold">
+            SIM, QUERO SER EMOCIONALMENTE INTOCÁVEL
+        </button>
+    </div>
+        
+    <!-- Testimonials Section -->
+    <section class="py-20 px-4 bg-dark">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+                QUEM JA <span class="red-gradient-text">REVOLUCIONOU</span> A PRÓPRIA MENTE
+            </h2>
+                        
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-gray-800 bg-opacity-50 p-8">
+                    <p class="text-lg italic mb-6">
+                        "Depois de anos explodindo com todo mundo, hoje tenho controle emocional mesmo nas situações mais difíceis. Minha família não acredita na transformação que viveram!"
+                    </p>
+                    <p class="font-bold text-lg">Roberta, 32 anos</p>
+                    <p class="text-gray-400">Mãe de três crianças</p>
+                </div>
+                                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-gray-800 bg-opacity-50 p-8">
+                    <p class="text-lg italic mb-6">
+                        "Cheguei ao fundo do poço e não aguentava mais acordar angustiado. Hoje, encontrei a paz interior que achava impossível e recuperei o controle da minha vida."
+                    </p>
+                    <p class="font-bold text-lg">Carlos, 54 anos</p>
+                    <p class="text-gray-400">Empresário</p>
+                </div>
+                                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-gray-800 bg-opacity-50 p-8">
+                    <p class="text-lg italic mb-6">
+                        "Sempre fui impulsiva e me arrependia depois. Agora consigo lidar com tudo com uma calma que jamais imaginei ter. Até meus colegas notaram a diferença!"
+                    </p>
+                    <p class="font-bold text-lg">Júlia, 28 anos</p>
+                    <p class="text-gray-400">Professora</p>
+                </div>
+                                
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card bg-gray-800 bg-opacity-50 p-8 md:col-span-2 lg:col-span-1">
+                    <p class="text-lg italic mb-6">
+                        "Minha ansiedade controlava minha vida. Hoje, sou capaz de enfrentar qualquer coisa com tranquilidade. Passei de uma pessoa frágil para inabalável!"
+                    </p>
+                    <p class="font-bold text-lg">Marcelo, 19 anos</p>
+                    <p class="text-gray-400">Universitário</p>
+                </div>
+                                
+                <!-- Testimonial 5 -->
+                <div class="testimonial-card bg-gray-800 bg-opacity-50 p-8 md:col-span-2 lg:col-span-3">
+                    <p class="text-lg italic mb-6">
+                        "Depois de uma divórcio devastador, achava que nunca mais voltaria a sorrir. Hoje, percebo que a felicidade estava sempre ao meu alcance, bastava mudar minha forma de encarar as emoções."
+                    </p>
+                    <p class="font-bold text-lg">Luiza, 45 anos</p>
+                    <p class="text-gray-400">Executiva</p>
+                </div>
+            </div>
+        </div>
+    </section>
+        
+    <!-- Section Button -->
+    <div class="max-w-6xl mx-auto px-4 py-6 text-center">
+        <button onclick="document.getElementById('oferta').scrollIntoView({ behavior: 'smooth' });" class="btn-gradient px-8 py-4 text-white font-bold">
+            EU TAMBÉM QUERO MINHA TRANSFORMAÇÃO
+        </button>
+    </div>
+        
+    <!-- Offer Section -->
+    <section id="oferta" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center">
+                SUA MENTE <span class="red-gradient-text">INALCANÇÁVEL</span> PELA ADVERSIDADE
+            </h2>
+                        
+            <p class="text-xl text-center max-w-2xl mx-auto mb-12">
+                Escolha a versão ideal para começar sua jornada rumo à blindagem emocional definitiva
+            </p>
+                        
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Basic Offer -->
+                <div class="offer-card border-gradient p-8 flex flex-col h-full">
+                    <h3 class="text-2xl font-bold mb-4 text-center red-gradient-text">
+                        VERSÃO BÁSICA
+                    </h3>
+                                        
+                    <div class="text-center mb-8">
+                        <span class="text-4xl font-bold">R$ 12,90</span>
+                        <span class="text-lg block">ou 12x de R$ 1,08</span>
+                    </div>
+                                        
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span>Guia Visual dos 7 Princípios da Mente Inabalável</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span>Plano Diário de Fortalecimento Mental (Lite)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span>Acesso por 6 meses à plataforma digital</span>
+                        </li>
+                    </ul>
+                                        
+                    <div class="mt-auto">
+                        <button class="btn-gradient w-full py-4 text-white font-bold">
+                            EU QUERO A VERSÃO BÁSICA
+                        </button>
+                    </div>
+                </div>
+                                
+                <!-- Complete Offer -->
+                <div class="offer-card border-gradient p-8 flex flex-col h-full relative">
+                    <div class="absolute top-0 right-0 bg-gradient-to-r from-red-500 to-red-400 px-4 py-2 rounded-bl-lg rounded-tr-lg font-bold">
+                        MAIS COMPLETA
+                    </div>
+                                        
+                    <h3 class="text-2xl font-bold mb-4 text-center red-gradient-text">
+                        VERSÃO COMPLETA
+                    </h3>
+                                        
+                    <div class="text-center mb-8">
+                        <span class="text-4xl font-bold">R$ 16,90</span>
+                        <span class="text-lg block">ou 12x de R$ 1,40</span>
+                        <div class="bg-red-900 bg-opacity-20 p-2 rounded-lg mt-2">
+                            <span class="text-sm">Economize R$ 23,40 em relação ao básico!</span>
+                        </div>
+                    </div>
+                                        
+                    <div class="mb-4">
+                        <p class="font-bold mb-2">Tudo da versão básica +</p>
+                    </div>
+                                        
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-400 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span>Mini-Roteiro Estoico "O Controle é Seu"</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-400 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span>Kit de Respostas Emocionais de Alta Performance</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-400 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span>Checklist da Mente Antifrágil (Pré-Decisão)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-400 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span>Autoanálise Estoica + Mapa de Progresso Emocional</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-400 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span>Acesso vitalício ao conteúdo</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-400 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span>Suporte exclusivo por e-mail ou WhatsApp por 30 dias</span>
+                        </li>
+                    </ul>
+                                        
+                    <div class="mt-auto">
+                        <button class="btn-gradient w-full py-4 text-white font-bold">
+                            <div class="flex items-center justify-center">
+                                <span>Sim, quero blindar minha mente agora!</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+                        
+            <div class="max-w-2xl mx-auto mt-10 text-center bg-red-900 bg-opacity-20 p-4 rounded-xl">
+                <p class="font-bold">💡 Formato 100% digital via Gamma</p>
+                <p>Acessível pelo celular, tablet ou computador - comece hoje mesmo!</p>
+            </div>
+        </div>
+    </section>
+        
+    <!-- Guarantee Section -->
+    <section class="py-16 px-4 bg-dark">
+        <div class="max-w-4xl mx-auto">
+            <div class="border-gradient p-8 text-center">
+                <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-red-400 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zm7-10a1 1 0 01.967.744L14.146 7.2 13.047 14H12a.5.5 0 00-.5.5v.5a.5.5 0 00.5.5h1.39l.56.56a.5.5 0 00.7 0l.56-.56H17a.5.5 0 00.5-.5v-.5a.5.5 0 00-.5-.5h-.953l-1.1-6.8 1.116-2.232A1 1 0 0016 2h-4zm-.5 9h-3V8h3v3z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+                                
+                <h3 class="text-2xl font-bold mb-4">
+                    Garantia Incondicional de <span class="red-gradient-text">30 Dias</span>
+                </h3>
+                                
+                <p class="text-lg max-w-2xl mx-auto">
+                    Se você não sentir nenhuma transformação, devolvemos 100% do seu dinheiro — sem perguntas ou burocracias.
+                </p>
+            </div>
+        </div>
+    </section>
+        
+    <!-- FAQ Section -->
+    <section class="py-20 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+                PERGUNTAS <span class="red-gradient-text">FREQUENTES</span>
+            </h2>
+                        
+            <div class="space-y-6">
+                <div class="border-gradient p-6">
+                    <h3 class="text-xl font-bold mb-2 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                        </svg>
+                        Preciso ter experiência com filosofia?
+                    </h3>
+                    <p class="text-gray-300">
+                        Não. O método foi feito para qualquer pessoa, mesmo começando do zero. Não é um curso de filosofia, mas um sistema prático baseado em princípios estoicos.
+                    </p>
+                </div>
+                                
+                <div class="border-gradient p-6">
+                    <h3 class="text-xl font-bold mb-2 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 极 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                        </svg>
+                        Funciona no celular?
+                    </h3>
+                    <p class="text-gray-300">
+                        Sim. O conteúdo é totalmente digital e responsivo. Você pode acessar pelo celular, tablet ou computador, a qualquer momento e de qualquer lugar.
+                    </p>
+                </div>
+                                
+                <div class="border-gradient p-6">
+                    <h3 class="text-xl font-bold mb-2 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                        </svg>
+                        Vai me ajudar mesmo se eu estiver num momento ruim?
+                    </h3>
+                    <p class="text-gray-300">
+                        Sim. Ele foi feito exatamente para quem está passando por períodos difíceis. São justamente nesses momentos que os princípios estoicos se mostram mais eficazes.
+                    </p>
+                </div>
+                                
+                <div class="border-gradient p-6">
+                    <h3 class="text-xl font-bold mb-2 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-red-400" viewBox="极 0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                        </svg>
+                        Preciso quanto tempo por dia?
+                    </h3>
+                    <p class="text-gray-300">
+                        De 5 a 10 minutos já bastam. O método é focado em aplicação prática com exercícios rápidos que podem ser feitos durante sua rotina.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+        
+    <!-- Section Button -->
+    <div class="max-w-6xl mx-auto px-4 py-6 text-center">
+        <button onclick="document.getElementById('oferta').scrollIntoView({ behavior: 'smooth' });" class="btn-gradient px-8 py-4 text-white font-bold">
+            QUERO MINHA MENTE INABALÁVEL!
+        </button>
+    </div>
+        
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center">
+                <h3 class="text-xl font-bold">Mente Inabalável – O Código Estoico de Resistência Emocional</h3>
+                <p class="mt-4">Suporte: <a href="mailto:suporte.menteblindada@gmail.com" class="text-red-400">suporte.menteblindada@gmail.com</a></p>
+                <div class="mt-6 flex justify-center space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white">Política de Reembolso</a>
+                    <a href="#" class="text-gray-400 hover:text-white">Termos de Uso</a>
+                    <a href="#" class="text-gray-400 hover:text-white">Política de Privacidade</a>
+                </div>
+                <p class="mt-8 text-gray-500">
+                    © 2023 Código da Mente Inabalável. Todos os direitos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=awdawdawdawdd/top" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
+</html>
