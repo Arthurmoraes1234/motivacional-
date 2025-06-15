@@ -56,15 +56,6 @@
             poppins: ['Poppins', 'sans-serif'],
             baloo: ['"Baloo 2"', 'cursive'],
           },
-          animation: {
-            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-          },
-          keyframes: {
-            fadeInUp: {
-              '0%': { opacity: '0', transform: 'translateY(20px)' },
-              '100%': { opacity: '1', transform: 'translateY(0)' },
-            },
-          },
         },
       },
     };
@@ -73,15 +64,15 @@
   <style>
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #FFF9F0; /* Cor creme */
-      color: #2D3748; /* Cor de texto escura */
+      background-color: #FFF9F0;
+      color: #2D3748;
       scroll-behavior: smooth;
     }
     .font-display {
       font-family: 'Baloo 2', cursive;
     }
     .button-primary {
-      background-color: #FF6B00; /* Laranja vibrante */
+      background-color: #FF6B00;
       color: white;
       border-radius: 9999px;
       transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -110,27 +101,28 @@
     .highlight-doodle::after {
       content: '';
       position: absolute;
-      bottom: -5px;
+      bottom: -2px;
       left: -5px;
       right: -5px;
-      height: 12px;
+      height: 15px;
       background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23FFC700' stroke-width='4' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
       z-index: -1;
-      transform: rotate(-1deg);
-    }
-    .fade-in {
-        opacity: 0;
-        animation: fadeInUp 1s ease-out forwards;
-    }
-    @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(30px); }
-        to { opacity: 1; transform: translateY(0); }
+      transform: rotate(-1.5deg);
     }
     .section-card {
         background-color: white;
         border-radius: 24px;
         box-shadow: 0 10px 40px rgba(45, 55, 72, 0.08);
-        padding: 2.5rem;
+        padding: 2rem;
+    }
+    /* Estilos para o FAQ ativo */
+    .faq-item.active button i {
+        transform: rotate(180deg);
+    }
+    .faq-item.active .faq-content {
+        max-height: 200px; /* Altura suficiente para o conteúdo */
+        padding-top: 0.5rem;
+        padding-bottom: 1.25rem;
     }
   </style>
 </head>
@@ -150,13 +142,13 @@
     <!-- Seção 1: Headline -->
     <section class="py-16 text-center">
       <div class="container mx-auto px-6 max-w-4xl">
-        <h1 class="font-display text-4xl md:text-6xl font-extrabold mb-6 leading-tight fade-in">
-          Sua maior <span class="text-sky-blue">frustração</span> é ver seu filho <span class="highlight-doodle">vidrado no celular?</span>
+        <h1 class="font-display text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
+          Sua maior <span class="text-red-500">frustração</span> é ver a infância do seu filho se resumindo a uma <span class="highlight-doodle">tela?</span>
         </h1>
-        <p class="text-lg md:text-xl text-light-text max-w-2xl mx-auto mb-8 fade-in" style="animation-delay: 0.2s;">
+        <p class="text-lg md:text-xl text-light-text max-w-2xl mx-auto mb-8">
           Você sabe que o excesso de telas é prejudicial, mas a rotina corrida e a falta de ideias criativas te impedem de agir. <span class="font-bold">Nós entendemos e temos a solução.</span>
         </p>
-        <div class="fade-in" style="animation-delay: 0.4s;">
+        <div>
           <button onclick="scrollToOffers()" class="button-primary font-bold py-4 px-10 text-lg">
             Quero a solução agora! <i class="fa-solid fa-rocket ml-2"></i>
           </button>
@@ -194,7 +186,7 @@
                 <h2 class="font-display text-3xl md:text-4xl font-bold">O celular não está apenas distraindo.<br>Está <span class="text-red-500">roubando a infância</span> do seu filho.</h2>
             </div>
             <div class="grid md:grid-cols-2 gap-8">
-                <div class="section-card">
+                <div class="section-card p-8">
                     <h3 class="font-bold text-xl mb-4 text-dark-text">Sinais de alerta que você não pode ignorar:</h3>
                     <ul class="space-y-4">
                         <li class="flex items-start"><i class="fa-solid fa-circle-xmark text-red-400 mr-3 mt-1"></i><span>Crises de raiva e irritabilidade ao tirar o aparelho.</span></li>
@@ -202,7 +194,7 @@
                         <li class="flex items-start"><i class="fa-solid fa-circle-xmark text-red-400 mr-3 mt-1"></i><span>Apatia e desinteresse por brincadeiras do "mundo real".</span></li>
                     </ul>
                 </div>
-                <div class="section-card bg-sky-blue/10 border border-sky-blue/20">
+                <div class="section-card p-8 bg-sky-blue/10 border border-sky-blue/20">
                     <h3 class="font-bold text-xl mb-4 text-sky-blue">O que a ciência diz:</h3>
                      <p class="text-light-text">Apenas <span class="font-bold">2 horas</span> de tela por dia podem <span class="font-bold">dobrar os riscos</span> de desenvolvimento de <span class="font-bold text-sky-blue">TDAH, ansiedade e depressão infantil</span>, segundo estudos recentes.</p>
                 </div>
@@ -246,27 +238,29 @@
                 <h2 class="font-display text-3xl md:text-4xl font-bold">Junte-se a mais de <span class="text-sky-blue">20 mil mães</span> que redescobriram a alegria offline!</h2>
             </div>
             <div class="grid md:grid-cols-2 gap-10 items-start">
-                <div class="text-center">
-                    <div class="relative w-full max-w-xs mx-auto">
-                        <img src="https://i.imgur.com/gA1h0D1.png" alt="Phone mockup" class="w-full">
-                        <video id="video1" autoplay loop muted class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-auto rounded-3xl" style="padding-top: 1.5%; padding-bottom: 1.5%;">
+                <!-- Depoimento 1 -->
+                <div class="section-card p-6 text-center">
+                    <div class="rounded-2xl overflow-hidden mb-4 shadow-lg">
+                        <video id="video1" autoplay loop muted playsinline class="w-full h-auto">
                             <source src="https://video.wixstatic.com/video/512b9f_60ae51e5731347a2ad7018cbb8ac9103/480p/mp4/file.mp4" type="video/mp4">
                         </video>
                     </div>
-                     <p class="mt-4 font-bold">"A paz voltou a reinar! Fim de semana agora é só diversão." - Camila R.</p>
-                     <button onclick="toggleMute('video1', this)" class="mt-2 text-sm bg-blue-100 text-blue-800 font-semibold py-2 px-4 rounded-full transition hover:bg-blue-200">
+                    <p class="font-semibold text-light-text">"A paz voltou a reinar! Fim de semana agora é só diversão."</p>
+                    <p class="font-bold text-dark-text mt-1">- Camila R.</p>
+                    <button onclick="toggleMute('video1', this)" class="mt-4 text-sm bg-blue-100 text-blue-800 font-semibold py-2 px-4 rounded-full transition hover:bg-blue-200">
                         <i class="fa-solid fa-volume-xmark mr-2"></i> Ativar Som
                     </button>
                 </div>
-                <div class="text-center">
-                    <div class="relative w-full max-w-xs mx-auto">
-                         <img src="https://i.imgur.com/gA1h0D1.png" alt="Phone mockup" class="w-full">
-                         <video id="video2" autoplay loop muted class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-auto rounded-3xl" style="padding-top: 1.5%; padding-bottom: 1.5%;">
+                <!-- Depoimento 2 -->
+                <div class="section-card p-6 text-center">
+                    <div class="rounded-2xl overflow-hidden mb-4 shadow-lg">
+                        <video id="video2" autoplay loop muted playsinline class="w-full h-auto">
                             <source src="https://video.wixstatic.com/video/512b9f_f98411deb0484427b0e53076c6cf5f01/480p/mp4/file.mp4" type="video/mp4">
                         </video>
                     </div>
-                     <p class="mt-4 font-bold">"Meu filho largou o tablet e agora me pede pra brincar com ele. Incrível!" - Joana P.</p>
-                      <button onclick="toggleMute('video2', this)" class="mt-2 text-sm bg-blue-100 text-blue-800 font-semibold py-2 px-4 rounded-full transition hover:bg-blue-200">
+                    <p class="font-semibold text-light-text">"Meu filho largou o tablet e agora me pede pra brincar com ele. Incrível!"</p>
+                    <p class="font-bold text-dark-text mt-1">- Joana P.</p>
+                    <button onclick="toggleMute('video2', this)" class="mt-4 text-sm bg-blue-100 text-blue-800 font-semibold py-2 px-4 rounded-full transition hover:bg-blue-200">
                         <i class="fa-solid fa-volume-xmark mr-2"></i> Ativar Som
                     </button>
                 </div>
@@ -326,8 +320,8 @@
     <!-- Seção 7: Garantia -->
     <section class="py-20">
         <div class="container mx-auto px-6 max-w-3xl">
-            <div class="section-card text-center bg-gradient-to-br from-yellow-50 to-orange-100 border border-yellow-200">
-                <img src="https://i.imgur.com/g0R0e6y.png" alt="Selo de garantia" class="w-32 mx-auto mb-6">
+            <div class="section-card text-center bg-gradient-to-br from-yellow-50 to-orange-100 border border-yellow-200 p-8">
+                <i class="fa-solid fa-shield-halved text-6xl text-sunny-yellow mb-6"></i>
                 <h2 class="font-display text-3xl font-bold mb-4">Sua tranquilidade é nossa prioridade.</h2>
                 <p class="text-lg text-light-text mb-6">Você tem <span class="font-bold">30 dias de garantia incondicional</span>. Se por qualquer motivo você não amar o material e as transformações na sua família, basta nos enviar um e-mail e devolvemos 100% do seu dinheiro. Sem perguntas, sem ressentimentos.</p>
                 <p class="text-lg font-bold text-vibrant-orange">O único risco é continuar perdendo o tempo precioso da infância do seu filho para as telas.</p>
@@ -339,8 +333,47 @@
     <section class="py-20 bg-white">
         <div class="container mx-auto px-6 max-w-3xl">
             <h2 class="font-display text-3xl md:text-4xl font-bold text-center mb-12">Ainda tem dúvidas? A gente responde!</h2>
-            <div class="space-y-4" id="faq-container">
-                <!-- FAQ Items serão injetados aqui pelo JavaScript -->
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item bg-gray-50 border border-gray-200 rounded-xl">
+                    <button class="w-full text-left p-5 flex justify-between items-center font-bold text-dark-text hover:bg-gray-100 transition">
+                      <span>Este é um produto físico que receberei em casa?</span>
+                      <i class="fa-solid fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-5 text-light-text max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                      <p>Não, nosso produto é 100% digital. Após a compra, você recebe um link por e-mail para baixar o material em PDF, pronto para imprimir e usar quantas vezes quiser.</p>
+                    </div>
+                </div>
+                 <!-- FAQ Item 2 -->
+                <div class="faq-item bg-gray-50 border border-gray-200 rounded-xl">
+                    <button class="w-full text-left p-5 flex justify-between items-center font-bold text-dark-text hover:bg-gray-100 transition">
+                      <span>Para qual idade as atividades são recomendadas?</span>
+                      <i class="fa-solid fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-5 text-light-text max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                      <p>Nosso acervo foi pensado para a faixa etária de 3 a 10 anos. Muitas atividades podem ser adaptadas para serem mais simples para os menores ou mais desafiadoras para os maiores.</p>
+                    </div>
+                </div>
+                <!-- FAQ Item 3 -->
+                <div class="faq-item bg-gray-50 border border-gray-200 rounded-xl">
+                    <button class="w-full text-left p-5 flex justify-between items-center font-bold text-dark-text hover:bg-gray-100 transition">
+                      <span>E se meu filho não gostar das atividades?</span>
+                      <i class="fa-solid fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-5 text-light-text max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                      <p>É por isso que oferecemos uma garantia de 30 dias! Se você aplicar as atividades e sentir que não funcionou para sua família, basta nos contatar para um reembolso completo. Nosso objetivo é sua satisfação.</p>
+                    </div>
+                </div>
+                 <!-- FAQ Item 4 -->
+                <div class="faq-item bg-gray-50 border border-gray-200 rounded-xl">
+                    <button class="w-full text-left p-5 flex justify-between items-center font-bold text-dark-text hover:bg-gray-100 transition">
+                      <span>Preciso de materiais caros ou difíceis de encontrar?</span>
+                      <i class="fa-solid fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-5 text-light-text max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                      <p>De forma alguma! A maioria das atividades utiliza itens que você já tem em casa: papel, lápis de cor, tesoura, cola, rolos de papel higiênico, etc. A ideia é ser prático e acessível.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -348,7 +381,8 @@
     
   <footer class="bg-dark-text text-white">
     <div class="container mx-auto py-12 px-6 text-center">
-        <img src="https://i.imgur.com/LTIcyN4.png" alt="Logo" class="w-24 mx-auto mb-4 filter-white">
+        <!-- Logo branco corrigido -->
+        <img src="https://i.imgur.com/eN6Bq3a.png" alt="Logo Atividades Offline em branco" class="w-24 mx-auto mb-4">
         <p class="text-sm opacity-70">© 2024 Atividades Offline. Todos os direitos reservados.</p>
         <p class="text-sm opacity-70 mt-2">CNPJ: XX.XXX.XXX/0001-XX</p>
         <p class="text-sm mt-4"><a href="mailto:contato@atividadesoffline.com.br" class="opacity-70 hover:opacity-100 transition">contato@atividadesoffline.com.br</a></p>
@@ -376,63 +410,13 @@
         }
     }
 
-    // FAQ Dinâmico
-    const faqData = [
-      { q: "Este é um produto físico que receberei em casa?", a: "Não, nosso produto é 100% digital. Após a compra, você recebe um link por e-mail para baixar o material em PDF, pronto para imprimir e usar quantas vezes quiser." },
-      { q: "Para qual idade as atividades são recomendadas?", a: "Nosso acervo foi pensado para a faixa etária de 3 a 10 anos. Muitas atividades podem ser adaptadas para serem mais simples para os menores ou mais desafiadoras para os maiores." },
-      { q: "E se meu filho não gostar das atividades?", a: "É por isso que oferecemos uma garantia de 30 dias! Se você aplicar as atividades e sentir que não funcionou para sua família, basta nos contatar para um reembolso completo. Nosso objetivo é sua satisfação." },
-      { q: "Preciso de materiais caros ou difíceis de encontrar?", a: "De forma alguma! A maioria das atividades utiliza itens que você já tem em casa: papel, lápis de cor, tesoura, cola, rolos de papel higiênico, etc. A ideia é ser prático e acessível." }
-    ];
-
-    const faqContainer = document.getElementById('faq-container');
-    faqData.forEach((item, index) => {
-      const faqItem = document.createElement('div');
-      faqItem.className = 'bg-gray-50 border border-gray-200 rounded-xl overflow-hidden';
-      faqItem.innerHTML = `
-        <button class="w-full text-left p-5 flex justify-between items-center font-bold text-dark-text hover:bg-gray-100 transition">
-          <span>${item.q}</span>
-          <i class="fa-solid fa-chevron-down transition-transform"></i>
-        </button>
-        <div class="px-5 pb-5 text-light-text max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-          <p>${item.a}</p>
-        </div>
-      `;
-      faqContainer.appendChild(faqItem);
-
-      const button = faqItem.querySelector('button');
-      const content = faqItem.querySelector('div');
-      const icon = button.querySelector('i');
-
-      button.addEventListener('click', () => {
-        if (content.style.maxHeight && content.style.maxHeight !== '0px') {
-          content.style.maxHeight = '0px';
-          icon.classList.remove('rotate-180');
-        } else {
-          content.style.maxHeight = content.scrollHeight + 'px';
-          icon.classList.add('rotate-180');
-        }
-      });
-    });
-
-    // Adiciona animação de fade-in ao rolar
-    const faders = document.querySelectorAll('.fade-in');
-    const appearOptions = { threshold: 0.3, rootMargin: "0px 0px -50px 0px" };
-    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) {
-                return;
-            } else {
-                entry.target.classList.add('is-visible');
-                appearOnScroll.unobserve(entry.target);
-            }
+    // FAQ Dinâmico Corrigido
+    document.querySelectorAll('.faq-item button').forEach(button => {
+        button.addEventListener('click', () => {
+            const faqItem = button.parentElement;
+            faqItem.classList.toggle('active');
         });
-    }, appearOptions);
-    faders.forEach(fader => {
-        appearOnScroll.observe(fader);
     });
-
-    // Filtro branco para o logo no footer
-    document.querySelector('footer img').style.filter = 'brightness(0) invert(1)';
   </script>
 </body>
 </html>
