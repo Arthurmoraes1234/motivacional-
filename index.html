@@ -11,71 +11,120 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'dark-primary': '#0D1117',
+              'dark-secondary': '#161B22',
+              'accent-blue': '#2563EB',
+              'accent-red': '#EF4444',
+              'light-text': '#E5E7EB',
+              'muted-text': '#9CA3AF',
+            },
+            fontFamily: {
+              poppins: ['Poppins', 'sans-serif'],
+            },
+            animation: {
+                'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                'gradient-pulse': 'gradientPulse 5s ease-in-out infinite',
+            },
+            keyframes: {
+                fadeInUp: {
+                    '0%': { opacity: '0', transform: 'translateY(30px)' },
+                    '100%': { opacity: '1', transform: 'translateY(0)' },
+                },
+                gradientPulse: {
+                    '0%, 100%': { 'background-position': '0% 50%' },
+                    '50%': { 'background-position': '100% 50%' },
+                }
+            }
+          },
+        },
+      }
+    </script>
+
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #111827; /* Cinza Escuro */
-            color: #F9FAFB; /* Branco Suave */
+            background-color: #0D1117;
+            color: #E5E7EB;
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
-
-        .gradient-text-blue {
-            background-image: linear-gradient(90deg, #60A5FA, #3B82F6);
+        .gradient-text {
+            background-size: 200% 200%;
+            background-image: linear-gradient(90deg, #60A5FA, #3B82F6, #60A5FA);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            animation: gradient-pulse 4s ease-in-out infinite;
         }
-
-        .gradient-bg-red {
-            background: linear-gradient(90deg, #F87171, #EF4444);
-        }
-
         .cta-button {
-            background: linear-gradient(90deg, #60A5FA, #2563EB);
+            background: linear-gradient(90deg, #3B82F6, #2563EB);
             transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 5px 25px rgba(59, 130, 246, 0.25);
         }
-
         .cta-button:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.4);
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 10px 35px rgba(59, 130, 246, 0.4);
         }
-
         .section-card {
-            background-color: #1F2937;
-            border: 1px solid #374151;
-            border-radius: 1.5rem; /* 24px */
+            background-color: rgba(22, 27, 34, 0.6); /* dark-secondary com transparência */
+            backdrop-filter: blur(10px);
+            border: 1px solid #30363d;
+            border-radius: 1.5rem;
             padding: 2rem;
             transition: all 0.3s ease;
         }
-
         .section-card:hover {
-            transform: translateY(-5px);
-            border-color: #3B82F6;
+            transform: translateY(-8px);
+            border-color: #2563EB;
         }
-
-        /* Animação de entrada */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .angled-section {
+            position: relative;
+            background-color: #161B22; /* dark-secondary */
         }
-
+        .angled-section::before, .angled-section::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background-color: #161B22; /* dark-secondary */
+            z-index: -1;
+        }
+        .angled-section::before {
+            top: -50px;
+            transform: skewY(-2deg);
+        }
+        .angled-section::after {
+            bottom: -50px;
+            transform: skewY(-2deg);
+        }
+        .aurora-bg {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .aurora-blob {
+            position: absolute;
+            border-radius: 9999px;
+            opacity: 0.15;
+            filter: blur(100px);
+        }
         .fade-in-up {
+            opacity: 0;
             animation: fadeInUp 0.8s ease-out forwards;
-            opacity: 0; /* Inicia invisível */
         }
     </style>
 </head>
 <body class="antialiased">
 
     <!-- SEÇÃO: TARJA FIXA NO TOPO -->
-    <div class="gradient-bg-red text-white font-bold text-center py-2 px-4 fixed top-0 w-full z-50 shadow-lg">
+    <div class="bg-gradient-to-r from-red-600 to-red-500 text-white font-bold text-center py-2 px-4 fixed top-0 w-full z-50 shadow-lg">
         ÚLTIMO DIA DE PROMOÇÃO
     </div>
 
@@ -83,210 +132,202 @@
     <div class="pt-10">
 
         <!-- SEÇÃO 1 – HEADLINE + MOCKUP -->
-        <section class="py-20 text-center">
-            <div class="container mx-auto px-6">
+        <section class="relative py-20 md:pb-32 text-center overflow-hidden">
+            <div class="aurora-bg">
+                <div class="aurora-blob top-0 left-0 w-96 h-96 bg-accent-blue"></div>
+                <div class="aurora-blob bottom-0 right-0 w-96 h-96 bg-accent-red"></div>
+            </div>
+            <div class="container mx-auto px-6 relative z-10">
                 <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight fade-in-up">
-                    O Guia Completo de <span class="gradient-text-blue">Calistenia</span> Para Treinar em Qualquer Lugar.
+                    O Guia Completo de <span class="gradient-text">Calistenia</span> Para Treinar em Qualquer Lugar.
                 </h1>
-                <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8 fade-in-up" style="animation-delay: 0.2s;">
+                <p class="text-lg md:text-xl text-muted-text max-w-3xl mx-auto mb-10 fade-in-up" style="animation-delay: 0.2s;">
                     +421 vídeos para evoluir em casa, na rua ou na praça — sem depender de academia!
                 </p>
-                <div class="mb-10 fade-in-up" style="animation-delay: 0.4s;">
-                    <img src="https://i.imgur.com/Jf2ITnL.png" alt="Mockup do Produto Calistenia FX" class="w-full max-w-2xl mx-auto transform hover:scale-105 transition-transform duration-300">
-                </div>
-                <a href="#oferta" class="cta-button text-white font-bold py-4 px-12 rounded-full text-lg inline-block fade-in-up" style="animation-delay: 0.6s;">
+                <a href="#oferta-final" class="cta-button text-white font-bold py-4 px-12 rounded-full text-lg inline-block mb-12 fade-in-up" style="animation-delay: 0.4s;">
                     Sim, quero começar agora!
                 </a>
+                <div class="relative w-full flex justify-center fade-in-up" style="animation-delay: 0.6s;">
+                    <img src="https://i.imgur.com/Jf2ITnL.png" alt="Mockup do Produto Calistenia FX" class="w-full max-w-4xl mx-auto md:-mb-32 transform transition-transform duration-500 hover:scale-105">
+                </div>
             </div>
         </section>
 
         <!-- SEÇÃO 2 – APRESENTAÇÃO + CTA -->
-        <section class="py-20">
-            <div class="container mx-auto px-6">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="text-center md:text-left">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-6">
-                            Quer sair do básico e conquistar <span class="gradient-text-blue">movimentos insanos</span> da calistenia?
-                        </h2>
-                        <p class="text-gray-300 mb-4">Nosso Programa Exclusivo com <span class="font-bold text-white">+421 exercícios em vídeo</span> é a solução.</p>
-                        <p class="text-gray-300 mb-6">O Calistenia FX foi criado para te levar do zero ao domínio total da calistenia. Aprenda barra explosiva, front lever, bandeira humana e muito mais — mesmo que você seja iniciante!</p>
-                        <a href="#oferta" class="cta-button text-white font-bold py-3 px-8 rounded-full text-md inline-block">
-                            Sim, quero começar agora!
-                        </a>
-                    </div>
-                    <div>
-                        <img src="https://treinamentoonlinerdc.com.br/wp-content/uploads/2025/06/EDICAO-DE-VIDEOS-4.png" alt="Capa do Programa Calistenia FX" class="w-full max-w-sm mx-auto rounded-2xl shadow-2xl">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SEÇÃO 3 – O QUE VOCÊ VAI RECEBER -->
-        <section class="py-20 bg-gray-900">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold">📦 Pacote Completo – <span class="gradient-text-blue">Acesso Imediato</span></h2>
-                </div>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Item 1 -->
-                    <div class="section-card text-center">
-                        <img src="https://treinamentoonlinerdc.com.br/wp-content/uploads/2025/06/639aed67eeb48536b6e36903a71a7a3f.jpg" alt="Desafio em Vídeo" class="rounded-lg mb-4 h-48 w-full object-cover">
-                        <h3 class="text-xl font-bold mb-2"><i class="fas fa-fire text-red-500 mr-2"></i>Desafio +421 Movimentos em VÍDEO</h3>
-                        <p class="text-gray-400">Treinos intensos de peso corporal, projetados pra te transformar em uma máquina de queima de gordura.</p>
-                    </div>
-                    <!-- Item 2 -->
-                    <div class="section-card text-center">
-                        <img src="https://treinamentoonlinerdc.com.br/wp-content/uploads/2025/06/Captura-de-tela-2025-06-02-180552.png" alt="Gifs de Calistenia" class="rounded-lg mb-4 h-48 w-full object-contain bg-gray-800">
-                        <h3 class="text-xl font-bold mb-2"><i class="fas fa-sync-alt text-blue-400 mr-2"></i>+1.000 Gifs de Calistenia</h3>
-                        <p class="text-gray-400">Execuções passo a passo pra cada exercício — aprenda com clareza e segurança.</p>
-                    </div>
-                    <!-- Item 3 -->
-                    <div class="section-card text-center">
-                        <img src="https://treinamentoonlinerdc.com.br/wp-content/uploads/2025/06/0fac527137e31905bb5f5bb7c0fbd019.jpg" alt="Planilhas de Treino" class="rounded-lg mb-4 h-48 w-full object-cover">
-                        <h3 class="text-xl font-bold mb-2"><i class="fas fa-clipboard-list text-green-400 mr-2"></i>Planilhas de Treino</h3>
-                        <p class="text-gray-400">Treinos personalizados, dinâmicos, com evolução semanal. Nunca mais treinos repetidos ou sem graça.</p>
+        <div class="angled-section">
+            <section class="relative py-20 md:pt-40">
+                <div class="container mx-auto px-6">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="text-center md:text-left">
+                            <h2 class="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+                                Quer sair do básico e conquistar <span class="gradient-text">movimentos insanos?</span>
+                            </h2>
+                            <p class="text-muted-text text-lg mb-4">Nosso Programa Exclusivo com <span class="font-bold text-light-text">+421 exercícios em vídeo</span> é a solução.</p>
+                            <p class="text-muted-text text-lg mb-8">O Calistenia FX foi criado para te levar do zero ao domínio total. Aprenda barra explosiva, front lever, bandeira humana e muito mais — mesmo que você seja iniciante!</p>
+                            <a href="#oferta-final" class="cta-button text-white font-bold py-3 px-8 rounded-full text-md inline-block">
+                                Sim, quero começar agora!
+                            </a>
+                        </div>
+                        <div>
+                            <img src="https://treinamentoonlinerdc.com.br/wp-content/uploads/2025/06/EDICAO-DE-VIDEOS-4.png" alt="Capa do Programa Calistenia FX" class="w-full max-w-sm mx-auto rounded-2xl shadow-2xl">
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+    
+            <!-- SEÇÃO 3 – O QUE VOCÊ VAI RECEBER -->
+            <section class="relative py-20">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl md:text-5xl font-bold">📦 Pacote Completo – <span class="gradient-text">Acesso Imediato</span></h2>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="section-card text-center"><img src="https://treinamentoonlinerdc.com.br/wp-content/uploads/2025/06/639aed67eeb48536b6e36903a71a7a3f.jpg" alt="Desafio em Vídeo" class="rounded-xl mb-6 h-56 w-full object-cover"><h3 class="text-2xl font-bold mb-3">🔥 Desafio +421 Movimentos</h3><p class="text-muted-text">Treinos intensos de peso corporal para te transformar em uma máquina de queima de gordura.</p></div>
+                        <div class="section-card text-center"><img src="https://treinamentoonlinerdc.com.br/wp-content/uploads/2025/06/Captura-de-tela-2025-06-02-180552.png" alt="Gifs de Calistenia" class="rounded-xl mb-6 h-56 w-full object-contain bg-dark-primary"><h3 class="text-2xl font-bold mb-3">🌀 +1.000 Gifs de Calistenia</h3><p class="text-muted-text">Execuções passo a passo de cada exercício para você aprender com clareza e segurança.</p></div>
+                        <div class="section-card text-center"><img src="https://treinamentoonlinerdc.com.br/wp-content/uploads/2025/06/0fac527137e31905bb5f5bb7c0fbd019.jpg" alt="Planilhas de Treino" class="rounded-xl mb-6 h-56 w-full object-cover"><h3 class="text-2xl font-bold mb-3">📋 Planilhas de Treino</h3><p class="text-muted-text">Treinos personalizados e dinâmicos com evolução semanal. Nunca mais fique sem ideias.</p></div>
+                    </div>
+                </div>
+            </section>
+        </div>
 
         <!-- SEÇÃO 4 – O QUE VOCÊ VAI APRENDER -->
-        <section class="py-20">
-            <div class="container mx-auto px-6">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
+        <section class="py-20 relative">
+             <div class="aurora-bg">
+                <div class="aurora-blob -top-20 right-0 w-96 h-96 bg-accent-blue"></div>
+            </div>
+            <div class="container mx-auto px-6 relative">
+                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <h2 class="text-3xl md:text-4xl font-bold mb-6">✅ Veja o que você vai <span class="gradient-text-blue">aprender no curso:</span></h2>
-                        <ul class="space-y-4 text-lg">
-                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-blue-500 mr-3 mt-1.5"></i><span>Treinos atualizados toda semana</span></li>
-                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-blue-500 mr-3 mt-1.5"></i><span>Acesso exclusivo à comunidade de alunos</span></li>
-                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-blue-500 mr-3 mt-1.5"></i><span>Ajustes práticos na rotina e nos hábitos</span></li>
-                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-blue-500 mr-3 mt-1.5"></i><span>Domínio de push-up, pull-up, dips e muito mais</span></li>
-                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-blue-500 mr-3 mt-1.5"></i><span>Fortalecimento de tendões e articulações</span></li>
-                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-blue-500 mr-3 mt-1.5"></i><span>Aumento de mobilidade, flexibilidade e coordenação</span></li>
-                        </ul>
-                        <a href="#oferta" class="cta-button text-white font-bold py-3 px-8 rounded-full text-md inline-block mt-8">
-                            Sim, quero começar agora!
+                        <h2 class="text-3xl md:text-5xl font-bold mb-8 leading-tight">✅ O que você vai <span class="gradient-text">dominar</span> com o curso:</h2>
+                        <div class="grid grid-cols-2 gap-4 text-lg">
+                           <div class="bg-dark-secondary p-4 rounded-lg flex items-center"><i class="fa-solid fa-circle-check text-accent-blue mr-3"></i><span>Treinos atualizados</span></div>
+                           <div class="bg-dark-secondary p-4 rounded-lg flex items-center"><i class="fa-solid fa-circle-check text-accent-blue mr-3"></i><span>Comunidade exclusiva</span></div>
+                           <div class="bg-dark-secondary p-4 rounded-lg flex items-center"><i class="fa-solid fa-circle-check text-accent-blue mr-3"></i><span>Ajustes de rotina</span></div>
+                           <div class="bg-dark-secondary p-4 rounded-lg flex items-center"><i class="fa-solid fa-circle-check text-accent-blue mr-3"></i><span>Técnicas avançadas</span></div>
+                           <div class="bg-dark-secondary p-4 rounded-lg flex items-center"><i class="fa-solid fa-circle-check text-accent-blue mr-3"></i><span>Força nos tendões</span></div>
+                           <div class="bg-dark-secondary p-4 rounded-lg flex items-center"><i class="fa-solid fa-circle-check text-accent-blue mr-3"></i><span>Mobilidade e flexibilidade</span></div>
+                        </div>
+                         <a href="#oferta-final" class="cta-button text-white font-bold py-3 px-8 rounded-full text-md inline-block mt-8">
+                            Sim, quero dominar tudo isso!
                         </a>
                     </div>
                     <div class="flex justify-center">
-                        <img src="https://treinamentoonlinerdc.com.br/wp-content/uploads/2025/06/8af611b165bbce80c0f101e37af99888.jpg" alt="Atleta de Calistenia" class="rounded-full shadow-2xl w-80 h-80 object-cover border-4 border-gray-700">
+                        <img src="https://treinamentoonlinerdc.com.br/wp-content/uploads/2025/06/8af611b165bbce80c0f101e37af99888.jpg" alt="Atleta de Calistenia" class="rounded-full shadow-2xl w-full max-w-md object-cover border-4 border-dark-secondary">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SEÇÃO 5 – BÔNUS EXCLUSIVOS -->
-        <section class="py-20 bg-gray-900">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-12">🎁 Mais 3 <span class="gradient-text-blue">Bônus Insanos</span> – Só Hoje:</h2>
-                <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                    <div class="section-card border-t-4 border-red-500">
-                        <h3 class="text-xl font-bold mb-2"><i class="fas fa-fire mr-2"></i>Desafio 21 Dias</h3>
-                        <p class="text-gray-400">Treinos insanos com peso corporal — sem academia, sem desculpas.</p>
+        <!-- SEÇÃO 5 & 6 - Bônus e Quebra de Crença -->
+        <div class="angled-section">
+            <section class="relative py-20">
+                <div class="container mx-auto px-6 text-center">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-12">🎁 E somente hoje, você leva <span class="gradient-text">3 Bônus Insanos:</span></h2>
+                    <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                        <div class="section-card"><h3 class="text-xl font-bold mb-2">🔥 Desafio 21 Dias</h3><p class="text-muted-text">Treinos insanos com peso corporal — sem academia, sem desculpas.</p></div>
+                        <div class="section-card"><h3 class="text-xl font-bold mb-2">⚡ Fórmula da Planche</h3><p class="text-muted-text">Do zero ao controle total do corpo — protocolo definitivo de domínio.</p></div>
+                        <div class="section-card"><h3 class="text-xl font-bold mb-2">🔥 Protocolo de Queima</h3><p class="text-muted-text">Ative seu metabolismo pra secar 24h por dia, inspirado em atletas de elite.</p></div>
                     </div>
-                    <div class="section-card border-t-4 border-blue-500">
-                        <h3 class="text-xl font-bold mb-2"><i class="fas fa-bolt mr-2"></i>Fórmula da Planche</h3>
-                        <p class="text-gray-400">Do zero ao controle total do corpo — protocolo definitivo de domínio.</p>
+                </div>
+            </section>
+            <section class="relative py-20">
+                <div class="container mx-auto px-6 max-w-3xl text-center">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4 leading-tight">A Verdade Que a Indústria do Fitness <span class="text-red-500">Esconde</span></h2>
+                    <div class="section-card bg-dark-primary p-8 mt-8">
+                        <p class="text-lg text-left text-muted-text space-y-4"><span>A maioria acha que precisa de academia e whey pra ficar em forma… Mas muitos “maromba” não seguram 5 segundos num front lever. Por quê? Focam só em músculo estético.</span><span class="block mt-4 font-bold text-light-text">O que realmente importa — controle, tendões, mobilidade — é ignorado. Com o Calistenia FX, em 8 semanas você supera 90% deles, sem gastar com porcaria.</span></p>
                     </div>
-                    <div class="section-card border-t-4 border-red-500">
-                        <h3 class="text-xl font-bold mb-2"><i class="fas fa-fire mr-2"></i>Protocolo de Queima Extrema</h3>
-                        <p class="text-gray-400">Ative seu metabolismo pra secar 24h por dia, inspirado em atletas de elite.</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- SEÇÃO 7 & 8 – RECAP E GARANTIA -->
+        <section class="py-20 relative">
+             <div class="aurora-bg">
+                <div class="aurora-blob top-1/2 left-1/4 w-96 h-96 bg-accent-blue transform -translate-x-1/2 -translate-y-1/2"></div>
+            </div>
+            <div class="container mx-auto px-6 relative">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="section-card border-2 border-accent-blue shadow-2xl shadow-accent-blue/10">
+                        <h3 class="text-3xl font-bold mb-6 text-center">🎯 Resumo da sua vitória:</h3>
+                        <ul class="space-y-3 text-lg">
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-3"></i>421 vídeos de calistenia</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-3"></i>1.000 gifs explicativos</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-3"></i>Planilhas de treino completas</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-3"></i>Comunidade de alunos</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-3"></i>3 bônus secretos (limitados)</li>
+                            <li class="flex items-center font-bold"><i class="fas fa-check-circle text-green-400 mr-3"></i>Acesso vitalício + garantia de 30 dias</li>
+                        </ul>
+                        <a href="#oferta-final" class="cta-button text-white font-bold py-4 px-10 rounded-full text-lg block mt-8 text-center">Quero garantir meu acesso agora!</a>
+                    </div>
+                    <div class="text-center p-8">
+                        <i class="fas fa-shield-alt text-7xl text-accent-blue mb-4"></i>
+                        <h3 class="text-3xl font-bold mb-3">✅ Risco Zero – Garantia de 30 Dias</h3>
+                        <p class="text-muted-text text-lg">Não curtiu? O conteúdo não era o que você esperava? Você tem 30 dias pra pedir reembolso completo. Sem enrolação. O acesso é vitalício. Você compra uma vez e é seu pra sempre.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SEÇÃO 6 – QUEBRA DE CRENÇA -->
-        <section class="py-20 text-center">
-            <div class="container mx-auto px-6 max-w-3xl">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Calistenia sem Mistério</h2>
-                <p class="text-xl text-gray-400 mb-8">A Verdade Que a Indústria do Fitness Esconde</p>
-                <div class="section-card bg-gray-900 p-8">
-                    <p class="text-lg text-left text-gray-300 space-y-4">
-                        <span>A maioria acha que precisa de academia, máquina cara e whey pra ficar em forma… Mas muitos “maromba” não seguram nem 5 segundos num front lever.</span>
-                        <span>Por quê? Porque focam só em músculo estético. O que realmente importa — <span class="font-bold text-white">controle corporal, tendões, mobilidade</span> — é ignorado.</span>
-                        <span class="block mt-4 font-bold gradient-text-blue">Com o Calistenia FX, em 8 semanas você supera 90% dos caras da academia — sem gastar com porcaria.</span>
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SEÇÃO 7 – RECAP DA OFERTA -->
-        <section class="py-20 bg-gray-900">
-            <div class="container mx-auto px-6">
-                <div class="section-card max-w-2xl mx-auto text-center border-2 border-blue-500">
-                    <h2 class="text-3xl font-bold mb-6">🎯 Resumo do que você recebe por apenas <span class="text-blue-400">R$19,90</span>:</h2>
-                    <ul class="space-y-3 text-left text-lg inline-block">
-                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-3"></i>421 vídeos de calistenia</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-3"></i>1.000 gifs explicativos</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-3"></i>Planilhas de treino completas</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-3"></i>Comunidade de alunos</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-3"></i>3 bônus secretos (limitados)</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-3"></i>Acesso vitalício + garantia de 30 dias</li>
-                    </ul>
-                    <a href="#oferta" class="cta-button text-white font-bold py-4 px-10 rounded-full text-lg block mt-8">
-                        Quero garantir meu acesso agora!
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- SEÇÃO 8, 9, 10 - Garantia, Acesso, Segurança -->
-        <section class="py-20">
-            <div class="container mx-auto px-6">
-                <div class="grid md:grid-cols-3 gap-8 text-center">
-                    <!-- Garantia -->
-                    <div class="space-y-3">
-                        <i class="fas fa-shield-alt text-4xl text-blue-400"></i>
-                        <h3 class="text-xl font-bold">Risco Zero – Garantia de 30 Dias</h3>
-                        <p class="text-gray-400">Não curtiu? Reembolso completo. Sem enrolação. O acesso é vitalício, seu pra sempre.</p>
-                    </div>
-                    <!-- Acesso -->
-                    <div class="space-y-3">
-                        <i class="fas fa-paper-plane text-4xl text-blue-400"></i>
-                        <h3 class="text-xl font-bold">Como você acessa o curso?</h3>
-                        <p class="text-gray-400">Após o pagamento, você recebe um e-mail com login e senha. Acesso imediato para começar hoje.</p>
-                    </div>
-                    <!-- Segurança -->
-                    <div class="space-y-3">
-                        <i class="fas fa-lock text-4xl text-blue-400"></i>
-                        <h3 class="text-xl font-bold">Compra 100% Segura</h3>
-                        <p class="text-gray-400">Dados protegidos com criptografia em plataforma certificada. Pagamento confiável.</p>
+        <!-- SEÇÃO 9 & 10 - Acesso e Segurança -->
+        <div class="angled-section">
+            <section class="relative py-20">
+                <div class="container mx-auto px-6">
+                    <div class="grid md:grid-cols-2 gap-8 text-center">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-3">📲 Como você acessa o curso?</h3>
+                            <p class="text-muted-text">Após o pagamento, você recebe um e-mail com login e senha. Acesso imediato para começar os treinos ainda hoje.</p>
+                        </div>
+                         <div>
+                            <h3 class="text-2xl font-bold mb-3">🛡️ Compra 100% Segura</h3>
+                            <p class="text-muted-text">Dados protegidos com criptografia em plataforma certificada. Pagamento automático e confiável.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
 
         <!-- SEÇÃO FINAL – OFERTA + URGÊNCIA -->
-        <section id="oferta" class="py-20 bg-gray-900">
+        <section id="oferta-final" class="py-20">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-3xl md:text-5xl font-extrabold mb-4">🎯 Oferta Especial Por Tempo Limitado</h2>
-                <p class="text-2xl text-gray-400 line-through">De R$159,90</p>
-                <p class="text-5xl md:text-7xl font-extrabold my-4"><span class="gradient-text-blue">Hoje por apenas R$19,90</span></p>
-                <p class="text-xl text-gray-300 mb-8">ou 4x de R$10,60</p>
-                <a href="#" class="cta-button text-white font-bold py-4 px-12 rounded-full text-xl inline-block">
-                    Garantir meu acesso agora!
+                <p class="text-2xl text-muted-text line-through">De R$159,90</p>
+                <p class="text-5xl md:text-7xl font-extrabold my-4"><span class="gradient-text">Hoje por apenas R$19,90</span></p>
+                <p class="text-xl text-light-text mb-8">ou 4x de R$10,60</p>
+                <a href="#" class="cta-button text-white font-bold py-5 px-14 rounded-full text-xl inline-block">
+                    GARANTIR MEU ACESSO AGORA!
                 </a>
-                <p class="text-gray-400 mt-6"><i class="fas fa-hourglass-half mr-2"></i>Atenção: Essa condição pode sair do ar a qualquer momento.</p>
+                <p class="text-muted-text mt-6"><i class="fas fa-hourglass-half mr-2"></i>Atenção: Essa condição pode sair do ar a qualquer momento.</p>
             </div>
         </section>
 
     </div>
 
     <!-- RODAPÉ -->
-    <footer class="bg-gray-900 border-t border-gray-700 py-8">
-        <div class="container mx-auto px-6 text-center text-gray-400 text-sm">
-            <p class="mb-2">Marca | 2024 | Todos os direitos reservados</p>
+    <footer class="bg-dark-primary border-t border-dark-secondary py-8">
+        <div class="container mx-auto px-6 text-center text-muted-text text-sm">
+            <p class="mb-2">Calistenia FX | 2024 | Todos os direitos reservados</p>
             <div class="space-x-4">
-                <a href="#" class="hover:text-white">Termos de uso</a>
-                <span>|</span>
-                <a href="#" class="hover:text-white">Política de privacidade</a>
-                <span>|</span>
-                <a href="#" class="hover:text-white">Suporte</a>
+                <a href="#" class="hover:text-light-text">Termos de uso</a><span>|</span>
+                <a href="#" class="hover:text-light-text">Política de privacidade</a><span>|</span>
+                <a href="#" class="hover:text-light-text">Suporte</a>
             </div>
         </div>
     </footer>
     
+    <script>
+        // Animação de entrada suave
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up-visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in-up').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
 
