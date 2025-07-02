@@ -27,7 +27,7 @@
               poppins: ['Poppins', 'sans-serif'],
             },
             animation: {
-                'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                'fade-in-up': 'fadeInUp 0.8s ease-out 0.2s forwards', /* Adicionado delay para garantir carregamento */
                 'gradient-pulse': 'gradientPulse 5s ease-in-out infinite',
             },
             keyframes: {
@@ -71,7 +71,7 @@
             box-shadow: 0 10px 35px rgba(59, 130, 246, 0.4);
         }
         .section-card {
-            background-color: rgba(22, 27, 34, 0.6); /* dark-secondary com transparência */
+            background-color: rgba(22, 27, 34, 0.6);
             backdrop-filter: blur(10px);
             border: 1px solid #30363d;
             border-radius: 1.5rem;
@@ -84,7 +84,7 @@
         }
         .angled-section {
             position: relative;
-            background-color: #161B22; /* dark-secondary */
+            background-color: #161B22;
         }
         .angled-section::before, .angled-section::after {
             content: '';
@@ -92,7 +92,7 @@
             left: 0;
             width: 100%;
             height: 100px;
-            background-color: #161B22; /* dark-secondary */
+            background-color: #161B22;
             z-index: -1;
         }
         .angled-section::before {
@@ -115,9 +115,13 @@
             opacity: 0.15;
             filter: blur(100px);
         }
+        /* CORREÇÃO DA ANIMAÇÃO */
         .fade-in-up {
             opacity: 0;
-            animation: fadeInUp 0.8s ease-out forwards;
+            animation-name: fadeInUp;
+            animation-duration: 0.8s;
+            animation-timing-function: ease-out;
+            animation-fill-mode: forwards;
         }
     </style>
 </head>
@@ -138,17 +142,16 @@
                 <div class="aurora-blob bottom-0 right-0 w-96 h-96 bg-accent-red"></div>
             </div>
             <div class="container mx-auto px-6 relative z-10">
-                <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight fade-in-up">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight fade-in-up" style="animation-delay: 0.1s;">
                     O Guia Completo de <span class="gradient-text">Calistenia</span> Para Treinar em Qualquer Lugar.
                 </h1>
-                <p class="text-lg md:text-xl text-muted-text max-w-3xl mx-auto mb-10 fade-in-up" style="animation-delay: 0.2s;">
+                <p class="text-lg md:text-xl text-muted-text max-w-3xl mx-auto mb-10 fade-in-up" style="animation-delay: 0.3s;">
                     +421 vídeos para evoluir em casa, na rua ou na praça — sem depender de academia!
                 </p>
-                <a href="#oferta-final" class="cta-button text-white font-bold py-4 px-12 rounded-full text-lg inline-block mb-12 fade-in-up" style="animation-delay: 0.4s;">
+                <a href="#oferta-final" class="cta-button text-white font-bold py-4 px-12 rounded-full text-lg inline-block mb-12 fade-in-up" style="animation-delay: 0.5s;">
                     Sim, quero começar agora!
                 </a>
-                <!-- Container do Mockup para controle de posicionamento -->
-                <div class="relative z-20 fade-in-up" style="animation-delay: 0.6s;">
+                <div class="relative z-20 fade-in-up" style="animation-delay: 0.7s;">
                     <div class="md:-mb-24 lg:-mb-40">
                          <img src="https://i.imgur.com/Jf2ITnL.png" alt="Mockup do Produto Calistenia FX" class="w-full max-w-4xl mx-auto transform transition-transform duration-500 hover:scale-105">
                     </div>
@@ -316,23 +319,7 @@
             </div>
         </div>
     </footer>
-    
-    <script>
-        // Animação de entrada suave
-        document.addEventListener('DOMContentLoaded', () => {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                    }
-                });
-            }, { threshold: 0.1 });
 
-            document.querySelectorAll('.fade-in-up').forEach((el) => {
-                observer.observe(el);
-            });
-        });
-    </script>
 </body>
 </html>
 
