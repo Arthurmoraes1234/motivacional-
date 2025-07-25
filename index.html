@@ -64,7 +64,7 @@
               poppins: ['Poppins', 'sans-serif'],
             },
             animation: {
-                'fade-in-up': 'fadeInUp 0.8s ease-out 0.2s forwards', /* Adicionado delay para garantir carregamento */
+                'fade-in-up': 'fadeInUp 0.8s ease-out 0.2s forwards',
                 'gradient-pulse': 'gradientPulse 5s ease-in-out infinite',
             },
             keyframes: {
@@ -152,7 +152,6 @@
             opacity: 0.15;
             filter: blur(100px);
         }
-        /* CORREÇÃO DA ANIMAÇÃO */
         .fade-in-up {
             opacity: 0;
             animation-name: fadeInUp;
@@ -169,32 +168,31 @@
         ÚLTIMO DIA DE PROMOÇÃO
     </div>
 
-    <!-- SEÇÃO 1 – HEADLINE + MOCKUP (GIGANTE E SEM ANIMAÇÃO) -->
-    <!-- O padding-top aqui empurra o conteúdo para baixo da tarja fixa -->
-    <section class="relative pt-16 pb-24 md:pb-48 text-center overflow-hidden">
+    <!-- SEÇÃO 1 – HEADLINE + MOCKUP (AJUSTADO) -->
+    <section class="relative pt-24 pb-24 md:pb-48 text-center overflow-hidden">
         <div class="aurora-bg">
             <div class="aurora-blob top-0 left-0 w-96 h-96 bg-accent-blue"></div>
             <div class="aurora-blob bottom-0 right-0 w-96 h-96 bg-accent-red"></div>
         </div>
         
-        <!-- Container para o texto -->
         <div class="container mx-auto px-6 relative z-10">
+            <!-- HEADLINE AJUSTADA -->
             <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
-                O Guia Completo de <span class="gradient-text">Calistenia</span> Para Treinar em Qualquer Lugar.
+                A indústria da musculação quer que você ignore isso:<br>
+                Essa <span class="gradient-text">técnica secreta de calistenia</span> te dá força, shape e mobilidade em casa — sem peso, sem academia, sem desculpa.
             </h1>
+            <!-- SUBHEAD AJUSTADA -->
             <p class="text-lg md:text-xl text-muted-text max-w-3xl mx-auto mb-10">
-                +421 vídeos para evoluir em casa, na rua ou na praça — sem depender de academia!
+                +421 vídeos desbloqueando movimentos que 99% dos marombas jamais vão fazer. Prepare-se pra dominar teu corpo de verdade.
             </p>
+            <!-- CTA PRINCIPAL AJUSTADO -->
             <a href="#oferta-final" class="cta-button text-white font-bold py-4 px-12 rounded-full text-lg inline-block mb-12">
-                Começar agora!
+                Liberar meu acesso antes que fechem!
             </a>
         </div>
 
-        <!-- Container do Mockup (fora do container de texto para ser maior) -->
         <div class="relative z-20 mt-8">
-            <!-- Margem negativa e largura máxima aumentadas para efeito dramático -->
             <div class="md:-mb-56 lg:-mb-80">
-                 <!-- Animação de hover removida e largura máxima aumentada com estilo inline para garantir o tamanho -->
                  <img src="https://i.imgur.com/5MRpDQr.png" alt="Mockup do Produto Calistenia FX" class="w-full mx-auto" style="max-width: 1400px;">
             </div>
         </div>
@@ -212,7 +210,7 @@
                             <p class="text-muted-text text-lg mb-4">Nosso Programa Exclusivo com <span class="font-bold text-light-text">+421 exercícios em vídeo</span> é a solução.</p>
                             <p class="text-muted-text text-lg mb-8">O Calistenia FX foi criado para te levar do zero ao domínio total. Aprenda barra explosiva, front lever, bandeira humana e muito mais — mesmo que você seja iniciante!</p>
                             <a href="#oferta-final" class="cta-button text-white font-bold py-3 px-8 rounded-full text-md inline-block">
-                                Começar agora!
+                                Liberar meu acesso antes que fechem!
                             </a>
                         </div>
                         <div>
@@ -229,7 +227,7 @@
                         <h2 class="text-3xl md:text-5xl font-bold">📦 Pacote Completo <span class="gradient-text">Acesso Imediato</span></h2>
                     </div>
                     <div class="grid md:grid-cols-3 gap-8">
-                        <div class="section-card text-center"><img src="https://i.imgur.com/mkJdVH7.jpeg">🔥 Desafio +421 Movimentos</h3><p class="text-muted-text">Treinos intensos de peso corporal para te transformar em uma máquina de queima de gordura.</p></div>
+                        <div class="section-card text-center"><img src="https://i.imgur.com/mkJdVH7.jpeg" alt="Desafio de Movimentos" class="rounded-xl mb-6"><h3 class="text-2xl font-bold mb-3">🔥 Desafio +421 Movimentos</h3><p class="text-muted-text">Treinos intensos de peso corporal para te transformar em uma máquina de queima de gordura.</p></div>
                         <div class="section-card text-center"><img src="https://treinamentoonlinerdc.com.br/wp-content/uploads/2025/06/Captura-de-tela-2025-06-02-180552.png" alt="Gifs de Calistenia" class="rounded-xl mb-6 h-56 w-full object-contain bg-dark-primary"><h3 class="text-2xl font-bold mb-3">🌀 +1.000 Gifs de Calistenia</h3><p class="text-muted-text">Execuções passo a passo de cada exercício para você aprender com clareza e segurança.</p></div>
                         <div class="section-card text-center"><img src="https://treinamentoonlinerdc.com.br/wp-content/uploads/2025/06/0fac527137e31905bb5f5bb7c0fbd019.jpg" alt="Planilhas de Treino" class="rounded-xl mb-6 h-56 w-full object-cover"><h3 class="text-2xl font-bold mb-3">📋 Planilhas de Treino</h3><p class="text-muted-text">Treinos personalizados e dinâmicos com evolução semanal. Nunca mais fique sem ideias.</p></div>
                     </div>
@@ -237,7 +235,7 @@
             </section>
         </div>
 
-        <!-- SEÇÃO 4 – O QUE VOCÊ VAI APRENDER -->
+        <!-- SEÇÃO 4 – O QUE VOCÊ VAI APRENDER (AJUSTADO) -->
         <section class="py-20 relative">
              <div class="aurora-bg">
                 <div class="aurora-blob -top-20 right-0 w-96 h-96 bg-accent-blue"></div>
@@ -245,7 +243,9 @@
             <div class="container mx-auto px-6 relative">
                  <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <h2 class="text-3xl md:text-5xl font-bold mb-8 leading-tight">✅ O que você vai <span class="gradient-text">dominar</span> com o curso:</h2>
+                        <h2 class="text-3xl md:text-5xl font-bold mb-4 leading-tight">✅ O que você vai <span class="gradient-text">dominar</span> com o curso:</h2>
+                        <!-- FRASE DE BENEFÍCIO ADICIONADA -->
+                        <p class="text-muted-text text-lg mb-8">Seu corpo vai virar sua academia. E teu treino, tua terapia.</p>
                         <div class="grid grid-cols-2 gap-4 text-lg">
                            <div class="bg-dark-secondary p-4 rounded-lg flex items-center"><i class="fa-solid fa-circle-check text-accent-blue mr-3"></i><span>Treinos atualizados</span></div>
                            <div class="bg-dark-secondary p-4 rounded-lg flex items-center"><i class="fa-solid fa-circle-check text-accent-blue mr-3"></i><span>Comunidade exclusiva</span></div>
@@ -265,11 +265,28 @@
             </div>
         </section>
 
-        <!-- SEÇÃO 5 & 6 - Bônus e Quebra de Crença -->
+        <!-- SEÇÃO NOVA - PROVA SOCIAL (ADICIONADO) -->
+        <section class="py-20 bg-dark-primary">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-5xl font-bold mb-12">O Que Nossos Alunos Falam... <span class="gradient-text">(Sem Filtro)</span></h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="section-card p-4"><img src="https://cakto-quiz-br01.b-cdn.net/uploads/e2fb610f-8cf8-412f-a9a2-97cd759ac561.png" alt="Depoimento 1" class="rounded-xl w-full"></div>
+                    <div class="section-card p-4">
+                        <img src="https://cakto-quiz-br01.b-cdn.net/uploads/c5eaf68f-20ff-4d6b-84de-f568cc631b9c.png" alt="Depoimento 2" class="rounded-xl w-full">
+                        <p class="text-light-text mt-4 italic text-lg">“3 semanas treinando na laje e já tô mais forte que o instrutor da SmartFit.”</p>
+                    </div>
+                    <div class="section-card p-4"><img src="https://cakto-quiz-br01.b-cdn.net/uploads/b5fc25ad-7c8a-4d1b-8b30-b02d9a02f646.webp" alt="Depoimento 3" class="rounded-xl w-full"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BÔNUS E QUEBRA DE CRENÇA (AJUSTADOS) -->
         <div class="angled-section">
             <section class="relative py-20">
                 <div class="container mx-auto px-6 text-center">
-                    <h2 class="text-3xl md:text-5xl font-bold mb-12">🎁 E somente hoje, você leva <span class="gradient-text">3 Bônus Insanos:</span></h2>
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">🎁 E somente hoje, você leva <span class="gradient-text">3 Bônus Insanos:</span></h2>
+                    <!-- VALOR DOS BÔNUS ADICIONADO -->
+                    <p class="text-xl font-bold text-green-400 mb-12">Valor total dos bônus: R$147,00 — você leva de graça hoje.</p>
                     <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
                         <div class="section-card"><h3 class="text-xl font-bold mb-2">🔥 Desafio 21 Dias</h3><p class="text-muted-text">Treinos insanos com peso corporal — sem academia, sem desculpas.</p></div>
                         <div class="section-card"><h3 class="text-xl font-bold mb-2">⚡ Fórmula da Planche</h3><p class="text-muted-text">Do zero ao controle total do corpo — protocolo definitivo de domínio.</p></div>
@@ -281,13 +298,14 @@
                 <div class="container mx-auto px-6 max-w-3xl text-center">
                     <h2 class="text-3xl md:text-5xl font-bold mb-4 leading-tight">A Verdade Que a Indústria do Fitness <span class="text-red-500">Esconde</span></h2>
                     <div class="section-card bg-dark-primary p-8 mt-8">
-                        <p class="text-lg text-left text-muted-text space-y-4"><span>A maioria acha que precisa de academia e whey pra ficar em forma… Mas muitos “maromba” não seguram 5 segundos num front lever. Por quê? Focam só em músculo estético.</span><span class="block mt-4 font-bold text-light-text">O que realmente importa — controle, tendões, mobilidade — é ignorado. Com o Calistenia FX, em 8 semanas você supera 90% deles, sem gastar com porcaria.</span></p>
+                        <!-- TEXTO AJUSTADO -->
+                        <p class="text-lg text-left text-muted-text space-y-4"><span>Eles querem que você fique preso na mensalidade, no suplemento, no ego de academia.</span><span class="block mt-4 font-bold text-light-text">Com a calistenia, você quebra essa corrente. O que realmente importa — controle, tendões, mobilidade — é conquistado com o peso do seu corpo. Com o Calistenia FX, em 8 semanas você supera 90% deles, sem gastar com porcaria.</span></p>
                     </div>
                 </div>
             </section>
         </div>
 
-        <!-- SEÇÃO 7 & 8 – RECAP E GARANTIA -->
+        <!-- RECAP E GARANTIA -->
         <section class="py-20 relative">
              <div class="aurora-bg">
                 <div class="aurora-blob top-1/2 left-1/4 w-96 h-96 bg-accent-blue transform -translate-x-1/2 -translate-y-1/2"></div>
@@ -301,55 +319,66 @@
                             <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-3"></i>1.000 gifs explicativos</li>
                             <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-3"></i>Planilhas de treino completas</li>
                             <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-3"></i>Comunidade de alunos</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-3"></i>3 bônus secretos (limitados)</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-3"></i>3 bônus secretos (de graça hoje)</li>
                             <li class="flex items-center font-bold"><i class="fas fa-check-circle text-green-400 mr-3"></i>Acesso vitalício + garantia de 30 dias</li>
                         </ul>
                         <a href="#oferta-final" class="cta-button text-white font-bold py-4 px-10 rounded-full text-lg block mt-8 text-center">Quero garantir meu acesso agora!</a>
                     </div>
                     <div class="text-center p-8">
                         <i class="fas fa-shield-alt text-7xl text-accent-blue mb-4"></i>
-                        <h3 class="text-3xl font-bold mb-3">✅ Risco Zero  Garantia de 30 Dias</h3>
+                        <h3 class="text-3xl font-bold mb-3">✅ Risco Zero | Garantia de 30 Dias</h3>
                         <p class="text-muted-text text-lg">Não curtiu? O conteúdo não era o que você esperava? Você tem 30 dias pra pedir reembolso completo. Sem enrolação. O acesso é vitalício. Você compra uma vez e é seu pra sempre.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SEÇÃO 9 & 10 - Acesso e Segurança -->
-        <div class="angled-section">
-            <section class="relative py-20">
-                <div class="container mx-auto px-6">
-                    <div class="grid md:grid-cols-2 gap-8 text-center">
-                        <div>
-                            <h3 class="text-2xl font-bold mb-3">📲 Como você acessa o curso?</h3>
-                            <p class="text-muted-text">Após o pagamento, você recebe um e-mail com login e senha. Acesso imediato para começar os treinos ainda hoje.</p>
-                        </div>
-                         <div>
-                            <h3 class="text-2xl font-bold mb-3">🛡️ Compra 100% Segura</h3>
-                            <p class="text-muted-text">Dados protegidos com criptografia em plataforma certificada. Pagamento automático e confiável.</p>
-                        </div>
+        <!-- FAQ (ADICIONADO) -->
+        <section class="py-20">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <h2 class="text-3xl md:text-5xl font-bold text-center mb-12">Perguntas Frequentes <span class="gradient-text">(Respostas Diretas)</span></h2>
+                <div class="space-y-6">
+                    <div class="section-card">
+                        <h3 class="text-xl font-bold mb-2">❓ Nunca fiz nada, esse treino é pra mim?</h3>
+                        <p class="text-muted-text">🧠 Justamente por isso que é pra tu, animal. O programa começa do absoluto zero, com variações fáceis até pra quem não sabe o que é uma flexão. Se tu consegue levantar da cama, tu consegue fazer.</p>
+                    </div>
+                    <div class="section-card">
+                        <h3 class="text-xl font-bold mb-2">❓ Preciso de equipamento?</h3>
+                        <p class="text-muted-text">🛑 NÃO. É calistenia, porra. Teu corpo é teu equipamento. Tu vai usar chão, parede, barra de rua e tua vontade de parar de ser um frango.</p>
+                    </div>
+                    <div class="section-card">
+                        <h3 class="text-xl font-bold mb-2">❓ Tenho pouco tempo, dá pra fazer mesmo assim?</h3>
+                        <p class="text-muted-text">⏱️ Dá sim, guerreiro. As rotinas foram montadas pra caber até em dia corrido. 15 a 30 minutos por dia. Tu gasta mais tempo scrollando TikTok do que cuidando do teu shape, seu vacilão.</p>
+                    </div>
+                    <div class="section-card">
+                        <h3 class="text-xl font-bold mb-2">❓ E se eu não curtir o programa?</h3>
+                        <p class="text-muted-text">💰 Tu tem 30 dias de garantia. Se achar que não vale, pede o dinheiro de volta e vai fazer polichinelo com a blogueira da SmartFit.</p>
+                    </div>
+                    <div class="section-card">
+                        <h3 class="text-xl font-bold mb-2">❓ É vitalício? Posso acessar pra sempre?</h3>
+                        <p class="text-muted-text">🔒 Sim. Pagou uma vez, é teu. Tu vai ter acesso pros teus filhos, neto, papagaio... o que tu quiser. Só não vai ter mais desculpa.</p>
                     </div>
                 </div>
-            </section>
-        </div>
+            </div>
+        </section>
 
-<!-- SEÇÃO FINAL – OFERTA + URGÊNCIA -->
-<section id="oferta-final" class="py-20">
-    <div class="container mx-auto px-6 text-center">
-        <h2 class="text-3xl md:text-5xl font-extrabold mb-4">🎯 Oferta Especial Por Tempo Limitado</h2>
-        <p class="text-2xl text-muted-text line-through">De R$79,90</p>
-        <p class="text-5xl md:text-7xl font-extrabold my-4"><span class="gradient-text">Hoje por apenas R$16,90</span></p>
-        
-        <!-- LINK DE CHECKOUT INSERIDO AQUI -->
-        <a href="https://checkout.pagarbem.site/VCCL1O8SC30I" class="cta-button text-white font-bold py-5 px-14 rounded-full text-xl inline-block">
-            COMPRAR AGORA!
-        </a>
-        
-        <p class="text-muted-text mt-6"><i class="fas fa-hourglass-half mr-2"></i>Atenção: Essa condição pode sair do ar a qualquer momento.</p>
-    </div>
-</section>
+        <!-- OFERTA FINAL (AJUSTADA) -->
+        <section id="oferta-final" class="py-20 bg-dark-secondary">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-5xl font-extrabold mb-4">🎯 Oferta Especial Por Tempo Limitado</h2>
+                <!-- PREÇO AJUSTADO -->
+                <p class="text-3xl text-muted-text line-through">De R$79,90</p>
+                <p class="text-5xl md:text-7xl font-extrabold my-4"><span class="gradient-text">Hoje por apenas R$16,90</span></p>
+                
+                <!-- BOTÃO FINAL AJUSTADO -->
+                <a href="https://checkout.pagarbem.site/VCCL1O8SC30I" class="cta-button text-white font-extrabold py-5 px-14 rounded-full text-2xl inline-block shadow-lg shadow-accent-blue/20">
+                    QUERO COMPRAR! 🔥
+                </a>
+                
+                <p class="text-muted-text mt-6"><i class="fas fa-hourglass-half mr-2"></i>Atenção: Essa condição pode sair do ar a qualquer momento.</p>
+            </div>
+        </section>
 
-    </div>
 
     <!-- RODAPÉ -->
     <footer class="bg-dark-primary border-t border-dark-secondary py-8">
