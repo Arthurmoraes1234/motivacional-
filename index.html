@@ -3,337 +3,570 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ricardo Alves - Portfólio de Designer</title>
+    <title>Arthur Rodrigues - Designer Profissional</title>
 
-    <!-- Google Fonts: Space Grotesk -->
+    <!-- Google Fonts: Poppins (versátil e moderna) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome para Ícones (WhatsApp) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <style>
+        /* --- 🎨 DESIGN SYSTEM E VARIÁVEIS GLOBAIS --- */
         :root {
-            --color-bg: #0D1117; /* Cinza Escuro (GitHub Dark) */
-            --color-bg-secondary: #161B22; /* Azul-acinzentado escuro */
-            --color-glass: rgba(22, 27, 34, 0.6);
-            --color-border: rgba(255, 255, 255, 0.1);
-            --color-text: #c9d1d9;
-            --color-text-heading: #ffffff;
-            --color-accent: #30A2FF; /* Azul Elétrico */
-            --font-main: 'Space Grotesk', sans-serif;
+            --bg-dark-blue: #0a0f2c;
+            --bg-dark-gray: #1e1e1e;
+            --text-white: #ffffff;
+            --accent-glow: rgba(0, 191, 255, 0.6); /* Um brilho azul para contraste */
+            --border-color: rgba(255, 255, 255, 0.1);
+            --font-family: 'Poppins', sans-serif;
         }
 
-        /* --- RESET GLOBAL E ESTILOS DE BASE --- */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        /* --- 🔄 RESET E ESTILOS GLOBAIS --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: var(--font-main);
-            color: var(--color-text);
-            background-color: var(--color-bg);
-            background-image: radial-gradient(circle at 10% 10%, rgba(48, 162, 255, 0.3) 0%, transparent 25%),
-                              radial-gradient(circle at 90% 80%, rgba(76, 52, 128, 0.3) 0%, transparent 25%);
-            background-attachment: fixed;
+            font-family: var(--font-family);
+            background-color: var(--bg-dark-blue);
+            color: var(--text-white);
             overflow-x: hidden;
         }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        section { padding: 120px 0; }
-        h1, h2, h3 { color: var(--color-text-heading); font-weight: 700; }
-        p { line-height: 1.6; }
-        a { text-decoration: none; color: var(--color-accent); }
 
-        /* --- ANIMAÇÃO DE SCROLL (PARA SEÇÕES FORA DO PORTFÓLIO PRINCIPAL) --- */
-        .reveal {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        /* --- HEADER --- */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+        }
+
+        /* --- ✨ ANIMAÇÃO DE SCROLL (CSS PURO) --- */
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            padding: 100px 0;
+            /* Ativa a animação conforme a seção entra na tela */
+            animation: fade-in-up 1s both;
+            animation-timeline: view();
+            animation-range-start: entry 10%;
+            animation-range-end: cover 40%;
+        }
+
+        /* --- 🔵 CABEÇALHO (HEADER) --- */
         .header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             padding: 20px 0;
-            z-index: 1000;
-            background: rgba(13, 17, 23, 0.7);
+            background: rgba(10, 15, 44, 0.5); /* Fundo com transparência */
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--color-border);
+            -webkit-backdrop-filter: blur(10px); /* Para compatibilidade */
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
         }
-        .header .container { display: flex; justify-content: space-between; align-items: center; }
-        .header .logo { height: 40px; }
-        .cta-button {
-            background-color: var(--color-accent);
-            color: var(--color-bg);
-            padding: 12px 30px;
-            font-weight: 700;
-            border-radius: 50px;
+
+        .header .container {
+            display: flex;
+            justify-content: center; /* Centraliza a logo */
+            align-items: center;
+        }
+
+        .header-logo {
+            height: 45px;
+        }
+
+        /* --- 🧔 SEÇÃO SOBRE MIM (HERO) --- */
+        .hero {
+            display: flex;
+            align-items: center;
+            min-height: 80vh;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            max-width: 700px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* --- 🎨 SEÇÃO DE ARTES ESTÁTICAS --- */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        /* Linha decorativa abaixo do título */
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-image: linear-gradient(90deg, transparent, var(--accent-glow), transparent);
+        }
+
+        .category-block {
+            margin-bottom: 80px;
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--accent-glow);
+            padding-left: 15px;
+        }
+
+        .art-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .art-card {
+            background-color: var(--bg-dark-gray);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .cta-button:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(48, 162, 255, 0.5); }
-
-        /* --- HERO --- */
-        .hero {
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-        }
-        .hero .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .hero-title { font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.1; max-width: 800px; }
-        .hero-title span { color: var(--color-accent); }
-        .hero-subtitle { font-size: 1.2rem; max-width: 600px; margin: 20px 0 30px 0; }
         
-        /* --- EXPERIÊNCIA DO PORTFÓLIO "A LENTE" --- */
-        .portfolio-wrapper {
-            position: relative;
-            padding: 80px 0;
-            cursor: none; /* Esconde o cursor padrão dentro desta área */
+        .art-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 191, 255, 0.2);
         }
-        /* A "LENTE" / CURSOR */
-        #lens {
-            position: fixed;
-            width: 300px; /* Tamanho da lente */
-            height: 300px;
-            border-radius: 50%;
-            border: 2px solid white;
-            pointer-events: none;
-            z-index: 999;
-            transition: transform 0.2s ease-out;
-            box-shadow: 0 0 30px rgba(0,0,0,0.5);
-        }
-        /* CAMADAS DO EFEITO */
-        .portfolio-layer {
-            position: absolute;
-            top: 0;
-            left: 0;
+
+        .art-card img {
             width: 100%;
             height: 100%;
-        }
-        .portfolio-background {
-            filter: grayscale(100%) brightness(0.4);
-            z-index: 1;
-        }
-        .portfolio-foreground {
-            z-index: 2;
-            clip-path: circle(150px at 50% 50%); /* A mágica acontece aqui */
-        }
-        
-        /* GRID MASONRY PARA AS ARTES */
-        .art-grid {
-            column-count: 4; /* Número de colunas */
-            column-gap: 20px;
-        }
-        .art-grid .art-item {
-            margin-bottom: 20px;
-            display: inline-block;
-            width: 100%;
-            overflow: hidden;
-        }
-        .art-grid .art-item img {
-            width: 100%;
-            height: auto;
+            object-fit: cover;
             display: block;
-            border-radius: 8px;
         }
 
-        /* Seções abaixo da experiência principal */
-        .section-title-wrapper {
-            padding: 120px 0 60px 0;
+        /* --- 🧮 SEÇÃO CALCULADORA --- */
+        .calculator-wrapper {
+            background-color: var(--bg-dark-gray);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--bg-dark-blue);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-white);
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent-glow);
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .total-price {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px dashed var(--border-color);
             text-align: center;
         }
-        .section-title { font-size: 3rem; margin: 0 auto; max-width: 700px; }
-        .section-title span { color: var(--color-accent); }
-        
-        .motion-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+
+        .total-price h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .total-price .price-display {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-glow);
+        }
+
+        /* --- 📦 SEÇÃO PLANOS --- */
+        .plans-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
             gap: 30px;
         }
-        .motion-gallery video {
-            width: 100%;
+
+        .plan-card {
+            background-color: var(--bg-dark-gray);
+            border: 1px solid var(--border-color);
             border-radius: 15px;
-            border: 1px solid var(--color-border);
-        }
-
-        /* --- CONTATO --- */
-        .contact {
-            background-color: var(--color-bg-secondary);
-            border-radius: 20px;
-            padding: 80px 40px;
+            padding: 40px 30px;
             text-align: center;
+            width: 320px;
+            transition: transform 0.3s ease;
         }
 
-        /* --- FOOTER --- */
-        .footer { padding: 30px 0; text-align: center; border-top: 1px solid var(--color-border); }
-
-        /* --- RESPONSIVIDADE --- */
-        @media (max-width: 1024px) {
-            .art-grid { column-count: 3; }
+        .plan-card:hover {
+            transform: scale(1.05);
         }
+        
+        .plan-card.highlighted {
+            border: 2px solid var(--accent-glow);
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(0, 191, 255, 0.3);
+        }
+        
+        .plan-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .plan-price {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .plan-price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .plan-description {
+            margin-bottom: 30px;
+        }
+
+        .plan-button {
+            display: inline-block;
+            width: 100%;
+            padding: 15px;
+            background-color: var(--accent-glow);
+            color: var(--bg-dark-blue);
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .plan-card.highlighted .plan-button {
+            background-color: var(--accent-glow);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        .plan-card:not(.highlighted) .plan-button {
+            background-color: transparent;
+            border: 1px solid var(--accent-glow);
+            color: var(--accent-glow);
+        }
+        
+        .plan-card:not(.highlighted) .plan-button:hover {
+            background-color: var(--accent-glow);
+            color: var(--bg-dark-blue);
+        }
+
+
+        /* --- 📩 SEÇÃO CONTATO --- */
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-button {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            background-color: var(--accent-glow);
+            border: none;
+            border-radius: 8px;
+            color: var(--bg-dark-blue);
+            cursor: pointer;
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .contact-button:hover {
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        /* --- 📱 BOTÃO FLUTUANTE DO WHATSAPP --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: #FFF;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            z-index: 999;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* --- 👣 RODAPÉ --- */
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid var(--border-color);
+            background-color: var(--bg-dark-gray);
+        }
+
+        /* --- 📱 MEDIA QUERIES PARA RESPONSIVIDADE --- */
         @media (max-width: 768px) {
-            .art-grid { column-count: 2; }
-            .motion-gallery { grid-template-columns: 1fr; }
-            /* Desativa o efeito da lente em telas touch para uma melhor experiência */
-            .portfolio-wrapper { cursor: default; }
-            #lens { display: none; }
-            .portfolio-background { filter: none; }
-            .portfolio-foreground { clip-path: none; }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .header-logo {
+                height: 35px;
+            }
+            .plans-grid {
+                flex-direction: column;
+            }
+            .plan-card {
+                width: 100%;
+                max-width: 350px;
+            }
+            .plan-card.highlighted {
+                transform: scale(1); /* Remove o zoom padrão no mobile */
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- ============================================= -->
+    <!-- ============== CABEÇALHO (HEADER) =========== -->
+    <!-- ============================================= -->
     <header class="header">
         <div class="container">
-            <img src="https://i.imgur.com/DaW9WFN.png" alt="Logo R" class="logo">
-            <a href="#contact" class="cta-button">Ver Planos</a>
+            <!-- Logo do designer -->
+            <img src="https://i.imgur.com/DaW9WFN.png" alt="Logo de Arthur Rodrigues" class="header-logo">
+            <!-- substitua essa imagem depois -->
         </div>
     </header>
 
     <main>
-        <!-- HERO SECTION -->
-        <section class="hero">
+        <!-- ============================================= -->
+        <!-- ============== SEÇÃO SOBRE MIM ============== -->
+        <!-- ============================================= -->
+        <section class="section hero">
             <div class="container">
-                <h1 class="hero-title reveal">
-                    Designer multidisciplinar transformando <span>ideias</span> em experiências digitais memoráveis.
-                </h1>
-                <p class="hero-subtitle reveal">
-                    Meu nome é Ricardo. Sou especialista em identidade visual, UI/UX e motion graphics, com foco em criar soluções que geram resultados para marcas ambiciosas.
+                <h1>Arthur Rodrigues</h1>
+                <p>
+                    Sou designer profissional com mais de 6 anos de experiência em artes estáticas voltadas para empresas e agências. Crio identidades visuais marcantes, conteúdos gráficos de alta performance e entrego o que toda marca precisa: presença visual poderosa.
                 </p>
-                <a href="#portfolio" class="cta-button reveal">Ver Projetos</a>
             </div>
         </section>
 
-        <!-- SEÇÃO DO PORTFÓLIO COM A LENTE INTERATIVA -->
-        <div id="portfolio" class="portfolio-wrapper">
-            <!-- A LENTE (CURSOR) -->
-            <div id="lens"></div>
-
-            <!-- CAMADA DE FUNDO (PRETO E BRANCO) -->
-            <div class="portfolio-layer portfolio-background">
-                <div class="container">
-                    <div class="art-grid">
-                        <!-- COLOQUE SUAS 20+ IMAGENS AQUI -->
-                        <div class="art-item"><img src="https://i.imgur.com/sKFTs4p.png" alt="Arte 1"></div>
-                        <div class="art-item"><img src="https://i.imgur.com/rHXeAkr.png" alt="Arte 2"></div>
-                        <div class="art-item"><img src="https://i.imgur.com/vHqLgIZ.png" alt="Arte 3"></div>
-                        <div class="art-item"><img src="https://i.imgur.com/n1M3bLg.png" alt="Arte 4"></div>
-                        <div class="art-item"><img src="https://i.imgur.com/7dGudBS.png" alt="Arte 5"></div>
-                        <div class="art-item"><img src="https://i.imgur.com/IOcsZ8u.png" alt="Arte 6"></div>
-                        <div class="art-item"><img src="https://i.imgur.com/Arez2gm.png" alt="Arte 7"></div>
-                        <div class="art-item"><img src="https://i.imgur.com/poXtryi.jpeg" alt="Arte 8"></div>
-                        <div class="art-item"><img src="https://i.imgur.com/7rtYqOn.jpeg" alt="Arte 9"></div>
-                        <!-- Adicione mais imagens conforme necessário -->
-                    </div>
-                </div>
-            </div>
-
-            <!-- CAMADA DA FRENTE (COLORIDA E REVELADA PELA LENTE) -->
-            <div class="portfolio-layer portfolio-foreground">
-                <div class="container">
-                    <div class="art-grid">
-                        <!-- REPITA EXATAMENTE AS MESMAS IMAGENS NA MESMA ORDEM -->
-                        <div class="art-item"><img src="https://i.imgur.com/sKFTs4p.png" alt="Arte 1"></div>
-                        <div class="art-item"><img src="https://i.imgur.com/rHXeAkr.png" alt="Arte 2"></div>
-                        <div class="art-item"><img src="https://i.imgur.com/vHqLgIZ.png" alt="Arte 3"></div>
-                        <div class="art-item"><img src="https://i.imgur.com/n1M3bLg.png" alt="Arte 4"></div>
-                        <div class="art-item"><img src="https://i.imgur.com/7dGudBS.png" alt="Arte 5"></div>
-                        <div class="art-item"><img src="https://i.imgur.com/IOcsZ8u.png" alt="Arte 6"></div>
-                        <div class="art-item"><img src="https://i.imgur.com/Arez2gm.png" alt="Arte 7"></div>
-                        <div class="art-item"><img src="https://i.imgur.com/poXtryi.jpeg" alt="Arte 8"></div>
-                        <div class="art-item"><img src="https://i.imgur.com/7rtYqOn.jpeg" alt="Arte 9"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- SEÇÃO DE MOTION -->
-        <section class="motion">
+        <!-- ============================================= -->
+        <!-- =========== SEÇÃO DE PORTFÓLIO ============= -->
+        <!-- ============================================= -->
+        <section class="section portfolio">
             <div class="container">
-                <div class="section-title-wrapper reveal">
-                    <h2 class="section-title">Dando <span>vida</span> a marcas através do movimento.</h2>
+                <h2 class="section-title">Portfólio de Artes</h2>
+
+                <!-- Categoria 1: Empresas de Saúde -->
+                <div class="category-block">
+                    <h3 class="category-title">Empresas de Saúde</h3>
+                    <div class="art-gallery">
+                        <div class="art-card"><img src="https://placehold.co/600x800/0a0f2c/FFF?text=Arte+1" alt="Arte para empresa de saúde 1"> <!-- substitua essa imagem depois --></div>
+                        <div class="art-card"><img src="https://placehold.co/600x600/0a0f2c/FFF?text=Arte+2" alt="Arte para empresa de saúde 2"> <!-- substitua essa imagem depois --></div>
+                        <div class="art-card"><img src="https://placehold.co/600x800/0a0f2c/FFF?text=Arte+3" alt="Arte para empresa de saúde 3"> <!-- substitua essa imagem depois --></div>
+                        <div class="art-card"><img src="https://placehold.co/600x600/0a0f2c/FFF?text=Arte+4" alt="Arte para empresa de saúde 4"> <!-- substitua essa imagem depois --></div>
+                    </div>
                 </div>
-                <div class="motion-gallery">
-                    <!-- Substitua pelo seu vídeo de motion -->
-                    <div class="motion-video reveal">
-                        <video src="https://video.wixstatic.com/video/512b9f_ac37a61a1aed45748dfa627bc6c2c070/1080p/mp4/file.mp4" autoplay loop muted playsinline></video>
+
+                <!-- Categoria 2: Infoprodutos -->
+                <div class="category-block">
+                    <h3 class="category-title">Infoprodutos</h3>
+                    <div class="art-gallery">
+                        <div class="art-card"><img src="https://placehold.co/600x600/0a0f2c/FFF?text=Arte+1" alt="Arte para infoproduto 1"> <!-- substitua essa imagem depois --></div>
+                        <div class="art-card"><img src="https://placehold.co/600x800/0a0f2c/FFF?text=Arte+2" alt="Arte para infoproduto 2"> <!-- substitua essa imagem depois --></div>
+                        <div class="art-card"><img src="https://placehold.co/600x600/0a0f2c/FFF?text=Arte+3" alt="Arte para infoproduto 3"> <!-- substitua essa imagem depois --></div>
                     </div>
-                    <!-- Adicione outro vídeo se tiver -->
-                    <div class="motion-video reveal">
-                        <video src="https://video.wixstatic.com/video/512b9f_ac37a61a1aed45748dfa627bc6c2c070/1080p/mp4/file.mp4" autoplay loop muted playsinline></video>
+                </div>
+
+                 <!-- Categoria 3: Petshops -->
+                 <div class="category-block">
+                    <h3 class="category-title">Petshops</h3>
+                    <div class="art-gallery">
+                        <div class="art-card"><img src="https://placehold.co/600x800/0a0f2c/FFF?text=Arte+1" alt="Arte para petshop 1"> <!-- substitua essa imagem depois --></div>
+                        <div class="art-card"><img src="https://placehold.co/600x800/0a0f2c/FFF?text=Arte+2" alt="Arte para petshop 2"> <!-- substitua essa imagem depois --></div>
                     </div>
+                </div>
+                
+                <!-- Adicione mais categorias conforme necessário -->
+            </div>
+        </section>
+
+        <!-- ============================================= -->
+        <!-- ======== SEÇÃO CALCULADORA DE PREÇO ========= -->
+        <!-- ============================================= -->
+        <section class="section calculator">
+            <div class="container">
+                <h2 class="section-title">Calculadora de Investimento</h2>
+                <div class="calculator-wrapper">
+                    <form>
+                        <div class="form-group">
+                            <label for="static-arts">Quantas artes estáticas?</label>
+                            <input type="number" id="static-arts" name="static-arts" min="0" placeholder="Ex: 10">
+                        </div>
+                        <div class="form-group">
+                            <label for="variations">Quantas com variações (stories, etc)?</label>
+                            <input type="number" id="variations" name="variations" min="0" placeholder="Ex: 5">
+                        </div>
+                        <div class="form-group">
+                            <label for="carousels">Quantos carrosséis?</label>
+                            <input type="number" id="carousels" name="carousels" min="0" placeholder="Ex: 2">
+                        </div>
+                        <div class="form-group">
+                            <label for="copy-arts">Quantas artes com copy (texto persuasivo)?</label>
+                            <input type="number" id="copy-arts" name="copy-arts" min="0" placeholder="Ex: 4">
+                        </div>
+
+                        <div class="total-price">
+                            <h3>Valor Total Estimado</h3>
+                            <div class="price-display">R$ 0,00</div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </section>
 
-        <!-- SEÇÃO DE CONTATO -->
-        <section id="contact">
-            <div class="container reveal">
-                <div class="contact">
-                    <h2 class="section-title">Pronto para criar algo incrível?</h2>
-                    <p style="max-width: 500px; margin: 20px auto 30px auto;">Estou disponível para novos projetos e colaborações. Vamos transformar sua visão em realidade.</p>
-                    <!-- Adicione o link do seu formulário/plataforma aqui -->
-                    <a href="#" class="cta-button">Solicitar Demanda</a>
+        <!-- ============================================= -->
+        <!-- ============ SEÇÃO PLANOS PRONTOS =========== -->
+        <!-- ============================================= -->
+        <section class="section plans">
+            <div class="container">
+                <h2 class="section-title">Planos Prontos</h2>
+                <div class="plans-grid">
+                    
+                    <!-- Plano Starter -->
+                    <div class="plan-card">
+                        <h3>Starter Plan</h3>
+                        <div class="plan-price">R$230 <span>/ 10 artes</span></div>
+                        <p class="plan-description">Ideal para pequenas empresas iniciando sua presença digital.</p>
+                        <a href="#" class="plan-button">Quero esse plano</a>
+                    </div>
+
+                    <!-- Plano Growth (com destaque) -->
+                    <div class="plan-card highlighted">
+                        <h3>Growth Plan</h3>
+                        <div class="plan-price">R$450 <span>/ 20 artes</span></div>
+                        <p class="plan-description">Perfeito para quem quer constância e um fluxo contínuo de conteúdo.</p>
+                        <a href="#" class="plan-button">Quero esse plano</a>
+                    </div>
+
+                    <!-- Plano Full Impact -->
+                    <div class="plan-card">
+                        <h3>Full Impact</h3>
+                        <div class="plan-price">R$650 <span>/ 30 artes</span></div>
+                        <p class="plan-description">Presença digital completa para máximo impacto e engajamento.</p>
+                        <a href="#" class="plan-button">Quero esse plano</a>
+                    </div>
+
                 </div>
             </div>
         </section>
+
+        <!-- ============================================= -->
+        <!-- =============== SEÇÃO CONTATO =============== -->
+        <!-- ============================================= -->
+        <section class="section contact">
+            <div class="container">
+                <h2 class="section-title">Vamos Conversar?</h2>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Seu Nome</label>
+                        <input type="text" id="name" name="name" required placeholder="Digite seu nome completo">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Seu E-mail</label>
+                        <input type="email" id="email" name="email" required placeholder="exemplo@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Sua Mensagem</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Conte-me sobre seu projeto..." style="width: 100%; padding: 12px; background-color: var(--bg-dark-blue); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-white); font-size: 1rem; font-family: var(--font-family);"></textarea>
+                    </div>
+                    <button type="submit" class="contact-button">Enviar Mensagem</button>
+                </form>
+            </div>
+        </section>
+
     </main>
 
+    <!-- ============================================= -->
+    <!-- ================== RODAPÉ =================== -->
+    <!-- ============================================= -->
     <footer class="footer">
         <div class="container">
-            <p>© 2024 Ricardo Alves. Todos os direitos reservados.</p>
+            <p>© 2024 Arthur Rodrigues. Todos os direitos reservados.</p>
         </div>
     </footer>
 
-    <script>
-        // --- SCRIPT DO EFEITO "A LENTE" ---
-        const lens = document.getElementById('lens');
-        const foreground = document.querySelector('.portfolio-foreground');
-        const portfolioWrapper = document.querySelector('.portfolio-wrapper');
-
-        // Apenas executa em dispositivos não-touch (com mouse)
-        if (window.matchMedia("(pointer: fine)").matches) {
-            portfolioWrapper.addEventListener('mousemove', (e) => {
-                // Posiciona a lente visual
-                lens.style.transform = `translate(${e.clientX - 150}px, ${e.clientY - 150}px)`;
-
-                // Calcula a posição do mouse relativa ao container do portfólio
-                const rect = portfolioWrapper.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-
-                // Atualiza o clip-path da camada da frente
-                foreground.style.clipPath = `circle(150px at ${x}px ${y}px)`;
-            });
-        }
-
-
-        // --- SCRIPT DE ANIMAÇÃO DE SCROLL ---
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-
-        const revealElements = document.querySelectorAll('.reveal');
-        revealElements.forEach((el) => observer.observe(el));
-    </script>
+    <!-- ============================================= -->
+    <!-- ========= BOTÃO FLUTUANTE WHATSAPP ========== -->
+    <!-- ============================================= -->
+    <a href="https://wa.me/SEUNUMERO" target="_blank" class="whatsapp-float" aria-label="Fale comigo no WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
 </body>
 </html>
