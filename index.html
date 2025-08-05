@@ -1,384 +1,387 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
-    
-<script
-  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-  data-utmify-prevent-xcod-sck
-  data-utmify-prevent-subids
-  async
-  defer
-></script>
-    
-    <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "rjpbgk7w9m");
-</script>
-
-    <!-- Meta Pixel Code -->
-<script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src='https://connect.facebook.net/en_US/fbevents.js';
-  s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script');
-  
-  fbq('init', '623187483436706');
-  fbq('track', 'PageView');
-</script>
-<noscript>
-  <img height="1" width="1" style="display:none"
-       src="https://www.facebook.com/tr?id=623187483436706&ev=PageView&noscript=1"/>
-</noscript>
-<!-- End Meta Pixel Code -->
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calistenia FX - O Guia Completo</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Ricardo Alves - Designer Portfolio</title>
+
+    <!-- Google Fonts: Space Grotesk -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              'dark-primary': '#0D1117',
-              'dark-secondary': '#161B22',
-              'accent-blue': '#2563EB',
-              'accent-red': '#EF4444',
-              'light-text': '#E5E7EB',
-              'muted-text': '#9CA3AF',
-            },
-            fontFamily: {
-              poppins: ['Poppins', 'sans-serif'],
-            },
-            animation: {
-                'fade-in-up': 'fadeInUp 0.8s ease-out 0.2s forwards',
-                'gradient-pulse': 'gradientPulse 5s ease-in-out infinite',
-            },
-            keyframes: {
-                fadeInUp: {
-                    '0%': { opacity: '0', transform: 'translateY(30px)' },
-                    '100%': { opacity: '1', transform: 'translateY(0)' },
-                },
-                gradientPulse: {
-                    '0%, 100%': { 'background-position': '0% 50%' },
-                    '50%': { 'background-position': '100% 50%' },
-                }
-            }
-          },
-        },
-      }
-    </script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
+        /* --- DESIGN SYSTEM & VARIABLES --- */
+        :root {
+            --color-bg: #0D1117; /* Cinza Escuro (GitHub Dark) */
+            --color-bg-secondary: #161B22; /* Azul-acinzentado escuro */
+            --color-glass: rgba(22, 27, 34, 0.6); /* Cor do vidro com transparência */
+            --color-border: rgba(255, 255, 255, 0.1);
+            --color-text: #c9d1d9;
+            --color-text-heading: #ffffff;
+            --color-accent: #30A2FF; /* Azul Elétrico */
+            
+            --font-main: 'Space Grotesk', sans-serif;
+        }
+
+        /* --- GLOBAL RESET & STYLES --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; cursor: none; }
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #0D1117;
-            color: #E5E7EB;
-            scroll-behavior: smooth;
+            font-family: var(--font-main);
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            background-image: radial-gradient(circle at 10% 10%, var(--color-accent) 0%, transparent 15%),
+                              radial-gradient(circle at 80% 90%, #6c40bd 0%, transparent 20%);
+            background-attachment: fixed;
             overflow-x: hidden;
         }
-        .gradient-text {
-            background-size: 200% 200%;
-            background-image: linear-gradient(90deg, #60A5FA, #3B82F6, #60A5FA);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            animation: gradient-pulse 4s ease-in-out infinite;
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        section { padding: 120px 0; position: relative; }
+        .section-title {
+            font-size: 3rem;
+            color: var(--color-text-heading);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
-        .cta-button {
-            background: linear-gradient(90deg, #3B82F6, #2563EB);
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 25px rgba(59, 130, 246, 0.25);
-        }
-        .cta-button:hover {
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 10px 35px rgba(59, 130, 246, 0.4);
-        }
-        .section-card {
-            background-color: rgba(22, 27, 34, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid #30363d;
-            border-radius: 1.5rem;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-        .section-card:hover {
-            transform: translateY(-8px);
-            border-color: #2563EB;
-        }
-        .angled-section {
-            position: relative;
-            background-color: #161B22;
-        }
-        .angled-section::before, .angled-section::after {
+        .section-title::before {
             content: '';
-            position: absolute;
+            display: block;
+            width: 40px;
+            height: 3px;
+            background-color: var(--color-accent);
+        }
+        .section-subtitle { font-size: 1.2rem; color: var(--color-text); max-width: 600px; margin-bottom: 60px; }
+        a, button { cursor: none; }
+
+        /* --- CURSOR INTERATIVO --- */
+        .cursor {
+            width: 25px;
+            height: 25px;
+            border: 2px solid var(--color-accent);
+            border-radius: 50%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease;
+        }
+        .cursor.grow {
+            transform: scale(2.5);
+            background-color: rgba(48, 162, 255, 0.2);
+            border-color: transparent;
+        }
+
+        /* --- ANIMAÇÃO DE SCROLL --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- HEADER --- */
+        .header {
+            position: fixed;
+            top: 0;
             left: 0;
             width: 100%;
-            height: 100px;
-            background-color: #161B22;
-            z-index: -1;
+            padding: 20px 0;
+            z-index: 100;
+            background: rgba(13, 17, 23, 0.7);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-border);
         }
-        .angled-section::before {
-            top: -50px;
-            transform: skewY(-2deg);
+        .header .container { display: flex; justify-content: space-between; align-items: center; }
+        .header .logo { height: 40px; }
+        .contact-button {
+            background: transparent;
+            border: 2px solid var(--color-accent);
+            color: var(--color-accent);
+            padding: 10px 25px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 50px;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
-        .angled-section::after {
-            bottom: -50px;
-            transform: skewY(-2deg);
+        .contact-button:hover { background-color: var(--color-accent); color: var(--color-bg); }
+
+        /* --- HERO --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
         }
-        .aurora-bg {
+        .hero-title {
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            color: var(--color-text-heading);
+            line-height: 1.1;
+        }
+        .hero-title span { color: var(--color-accent); }
+        .hero-subtitle { font-size: 1.5rem; max-width: 600px; margin-top: 20px; }
+        .scroll-down {
             position: absolute;
-            inset: 0;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--color-text);
+            font-size: 0.9rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .scroll-down i { font-size: 1.5rem; animation: bounce 2s infinite; }
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }
+
+        /* --- GALERIA DE ARTE (GRID ASSIMÉTRICO) --- */
+        .art-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .art-card {
+            background: var(--color-glass);
+            border: 1px solid var(--color-border);
+            border-radius: 15px;
+            padding: 20px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .art-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px rgba(48, 162, 255, 0.2);
+        }
+        .art-card img { width: 100%; border-radius: 8px; }
+        .art-card h3 { margin: 15px 0 5px 0; color: var(--color-text-heading); }
+        .art-card p { font-size: 0.9rem; }
+        /* Posicionamento assimétrico */
+        .art-card:nth-child(2) { transform: translateY(60px); }
+        .art-card:nth-child(3) { transform: translateY(30px); }
+
+        /* --- CARROSSEL INFINITO (MARQUEE) --- */
+        .marquee {
+            width: 100%;
             overflow: hidden;
-            z-index: -1;
+            padding: 40px 0;
+            background-color: var(--color-bg-secondary);
+            border-top: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
         }
-        .aurora-blob {
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: scroll-left 20s linear infinite;
+        }
+        .marquee-item {
+            flex-shrink: 0;
+            width: 250px;
+            margin: 0 20px;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+        .marquee-item:hover { opacity: 1; }
+        .marquee-item img { max-width: 100%; height: auto; }
+        @keyframes scroll-left { from { transform: translateX(0%); } to { transform: translateX(-50%); } }
+
+        /* --- MOTION VIDEOS --- */
+        .motion-gallery {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 50px;
+        }
+        .motion-video video {
+            width: 100%;
+            border-radius: 15px;
+            border: 1px solid var(--color-border);
+        }
+
+        /* --- CONTATO --- */
+        .contact { text-align: center; }
+        .contact .section-title { justify-content: center; }
+        .contact .section-title::after { content: ''; display: block; width: 40px; height: 3px; background-color: var(--color-accent); }
+        .contact-email {
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            color: var(--color-text-heading);
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            position: relative;
+        }
+        .contact-email::after {
+            content: '';
             position: absolute;
-            border-radius: 9999px;
-            opacity: 0.15;
-            filter: blur(100px);
+            width: 100%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--color-accent);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
         }
-        .fade-in-up {
-            opacity: 0;
-            animation-name: fadeInUp;
-            animation-duration: 0.8s;
-            animation-timing-function: ease-out;
-            animation-fill-mode: forwards;
+        .contact-email:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+
+        /* --- FOOTER --- */
+        .footer { padding: 30px 0; text-align: center; border-top: 1px solid var(--color-border); }
+
+        /* --- RESPONSIVIDADE --- */
+        @media (max-width: 768px) {
+            .section-title { font-size: 2.5rem; }
+            .art-gallery { grid-template-columns: 1fr; }
+            .art-card:nth-child(2), .art-card:nth-child(3) { transform: translateY(0); }
         }
     </style>
 </head>
-<body class="antialiased">
+<body>
 
-    <!-- SEÇÃO: TARJA FIXA NO TOPO -->
-    <div class="bg-gradient-to-r from-red-600 to-red-500 text-white font-bold text-center py-2 px-4 fixed top-0 w-full z-50 shadow-lg">
-        ÚLTIMO DIA DE PROMOÇÃO
-    </div>
+    <div class="cursor"></div>
 
-<!-- SEÇÃO 1 – HEADLINE + MOCKUP (AJUSTADO) -->
-<section class="relative pt-24 pb-24 md:pb-48 text-center overflow-hidden">
-    <div class="aurora-bg">
-        <div class="aurora-blob top-0 left-0 w-96 h-96 bg-accent-blue"></div>
-        <div class="aurora-blob bottom-0 right-0 w-96 h-96 bg-accent-red"></div>
-    </div>
-    
-    <div class="container mx-auto px-6 relative z-10">
-        <!-- HEADLINE E SUB-HEADLINE AJUSTADAS -->
-        <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
-            421+ treinos em vídeo para dominar a <span class="gradient-text">calistenia</span> mesmo do absoluto zero!
-        </h1>
-        <p class="text-xl md:text-2xl text-light-text font-semibold max-w-3xl mx-auto mb-10">
-            "Ganhe shape, força e respeito — só com teu corpo."
-        </p>
-
-        <!-- CTA PRINCIPAL -->
-        <a href="#oferta-final" class="cta-button text-white font-bold py-4 px-12 rounded-full text-lg inline-block mb-12">
-            Liberar meu acesso antes que fechem!
-        </a>
-    </div>
-
-    <div class="relative z-20 mt-8">
-        <div class="md:-mb-56 lg:-mb-80">
-             <img src="https://i.imgur.com/5MRpDQr.png" alt="Mockup do Produto Calistenia FX" class="w-full mx-auto" style="max-width: 1400px;">
+    <header class="header">
+        <div class="container">
+            <img src="https://i.imgur.com/DaW9WFN.png" alt="R Logo" class="logo">
+            <a href="#contact" class="contact-button">CONTACT</a>
         </div>
-    </div>
+    </header>
 
-    <!-- BLOCO DE TEXTO ADICIONADO ABAIXO DO MOCKUP -->
-    <div class="relative z-10 container mx-auto px-6 text-center md:-mt-24 lg:-mt-32">
-        <p class="text-lg md:text-xl text-muted-text max-w-2xl mx-auto">
-            +421 vídeos desbloqueando movimentos que 99% dos marombas jamais vão fazer. Prepare-se pra dominar teu corpo de verdade.
-        </p>
-        <p class="text-4xl md:text-5xl font-extrabold my-4 gradient-text uppercase">
-            Apenas agora R$16,90
-        </p>
-    </div>
-</section>
-    
-            <!-- SEÇÃO 3 – O QUE VOCÊ VAI RECEBER -->
-            <section class="relative py-20">
-                <div class="container mx-auto px-6">
-                    <div class="text-center mb-16">
-                        <h2 class="text-3xl md:text-5xl font-bold">📦 Pacote Completo <span class="gradient-text">Acesso Imediato</span></h2>
-                    </div>
-                    <div class="grid md:grid-cols-3 gap-8">
-                        <div class="section-card text-center"><img src="https://i.imgur.com/mkJdVH7.jpeg" alt="Desafio de Movimentos" class="rounded-xl mb-6"><h3 class="text-2xl font-bold mb-3">🔥 Desafio +421 Movimentos</h3><p class="text-muted-text">Treinos intensos de peso corporal para te transformar em uma máquina de queima de gordura.</p></div>
-                        <div class="section-card text-center"><img src="https://treinamentoonlinerdc.com.br/wp-content/uploads/2025/06/Captura-de-tela-2025-06-02-180552.png" alt="Gifs de Calistenia" class="rounded-xl mb-6 h-56 w-full object-contain bg-dark-primary"><h3 class="text-2xl font-bold mb-3">🌀 +1.000 Gifs de Calistenia</h3><p class="text-muted-text">Execuções passo a passo de cada exercício para você aprender com clareza e segurança.</p></div>
-                        <div class="section-card text-center"><img src="https://treinamentoonlinerdc.com.br/wp-content/uploads/2025/06/0fac527137e31905bb5f5bb7c0fbd019.jpg" alt="Planilhas de Treino" class="rounded-xl mb-6 h-56 w-full object-cover"><h3 class="text-2xl font-bold mb-3">📋 Planilhas de Treino</h3><p class="text-muted-text">Treinos personalizados e dinâmicos com evolução semanal. Nunca mais fique sem ideias.</p></div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- SEÇÃO 4 – O QUE VOCÊ VAI APRENDER (AJUSTADO) -->
-        <section class="py-20 relative">
-             <div class="aurora-bg">
-                <div class="aurora-blob -top-20 right-0 w-96 h-96 bg-accent-blue"></div>
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero" id="home">
+            <div class="container">
+                <h1 class="hero-title reveal">
+                    Visuals that <span>resonate.</span><br>
+                    Experiences that engage.
+                </h1>
+                <p class="hero-subtitle reveal">
+                    I'm Ricardo, a multi-disciplinary designer crafting beautiful and functional digital solutions for forward-thinking brands.
+                </p>
             </div>
-            <div class="container mx-auto px-6 relative">
-                 <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h2 class="text-3xl md:text-5xl font-bold mb-4 leading-tight">✅ O que você vai <span class="gradient-text">dominar</span> com o curso:</h2>
-                        <!-- FRASE DE BENEFÍCIO ADICIONADA -->
-                        <p class="text-muted-text text-lg mb-8">Seu corpo vai virar sua academia. E teu treino, tua terapia.</p>
-                        <div class="grid grid-cols-2 gap-4 text-lg">
-                           <div class="bg-dark-secondary p-4 rounded-lg flex items-center"><i class="fa-solid fa-circle-check text-accent-blue mr-3"></i><span>Treinos atualizados</span></div>
-                           <div class="bg-dark-secondary p-4 rounded-lg flex items-center"><i class="fa-solid fa-circle-check text-accent-blue mr-3"></i><span>Comunidade exclusiva</span></div>
-                           <div class="bg-dark-secondary p-4 rounded-lg flex items-center"><i class="fa-solid fa-circle-check text-accent-blue mr-3"></i><span>Ajustes de rotina</span></div>
-                           <div class="bg-dark-secondary p-4 rounded-lg flex items-center"><i class="fa-solid fa-circle-check text-accent-blue mr-3"></i><span>Técnicas avançadas</span></div>
-                           <div class="bg-dark-secondary p-4 rounded-lg flex items-center"><i class="fa-solid fa-circle-check text-accent-blue mr-3"></i><span>Força nos tendões</span></div>
-                           <div class="bg-dark-secondary p-4 rounded-lg flex items-center"><i class="fa-solid fa-circle-check text-accent-blue mr-3"></i><span>Mobilidade e flexibilidade</span></div>
-                        </div>
-                         <a href="#oferta-final" class="cta-button text-white font-bold py-3 px-8 rounded-full text-md inline-block mt-8">
-                            Sim, quero dominar tudo isso!
-                        </a>
-                    </div>
-                    <div class="flex justify-center">
-                        <img src="https://treinamentoonlinerdc.com.br/wp-content/uploads/2025/06/8af611b165bbce80c0f101e37af99888.jpg" alt="Atleta de Calistenia" class="rounded-full shadow-2xl w-full max-w-md object-cover border-4 border-dark-secondary">
-                    </div>
-                </div>
+            <div class="scroll-down">
+                <p>Scroll to explore</p>
+                <i class="fas fa-arrow-down"></i>
             </div>
         </section>
 
-        <!-- SEÇÃO NOVA - PROVA SOCIAL (ADICIONADO) -->
-        <section class="py-20 bg-dark-primary">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-5xl font-bold mb-12">O Que Nossos Alunos Falam... <span class="gradient-text">(Sem Filtro)</span></h2>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="section-card p-4"><img src="https://cakto-quiz-br01.b-cdn.net/uploads/e2fb610f-8cf8-412f-a9a2-97cd759ac561.png" alt="Depoimento 1" class="rounded-xl w-full"></div>
-                    <div class="section-card p-4">
-                        <img src="https://cakto-quiz-br01.b-cdn.net/uploads/c5eaf68f-20ff-4d6b-84de-f568cc631b9c.png" alt="Depoimento 2" class="rounded-xl w-full">
-                        <p class="text-light-text mt-4 italic text-lg">“3 semanas treinando na laje e já tô mais forte que o instrutor da SmartFit.”</p>
-                    </div>
-                    <div class="section-card p-4"><img src="https://cakto-quiz-br01.b-cdn.net/uploads/b5fc25ad-7c8a-4d1b-8b30-b02d9a02f646.webp" alt="Depoimento 3" class="rounded-xl w-full"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- BÔNUS E QUEBRA DE CRENÇA (AJUSTADOS) -->
-        <div class="angled-section">
-            <section class="relative py-20">
-                <div class="container mx-auto px-6 text-center">
-                    <h2 class="text-3xl md:text-5xl font-bold mb-4">🎁 E somente hoje, você leva <span class="gradient-text">3 Bônus Insanos:</span></h2>
-                    <!-- VALOR DOS BÔNUS ADICIONADO -->
-                    <p class="text-xl font-bold text-green-400 mb-12">Valor total dos bônus: R$147,00 — você leva de graça hoje.</p>
-                    <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                        <div class="section-card"><h3 class="text-xl font-bold mb-2">🔥 Desafio 21 Dias</h3><p class="text-muted-text">Treinos insanos com peso corporal — sem academia, sem desculpas.</p></div>
-                        <div class="section-card"><h3 class="text-xl font-bold mb-2">⚡ Fórmula da Planche</h3><p class="text-muted-text">Do zero ao controle total do corpo — protocolo definitivo de domínio.</p></div>
-                        <div class="section-card"><h3 class="text-xl font-bold mb-2">🔥 Protocolo de Queima</h3><p class="text-muted-text">Ative seu metabolismo pra secar 24h por dia, inspirado em atletas de elite.</p></div>
-                    </div>
-                </div>
-            </section>
-            <section class="relative py-20">
-                <div class="container mx-auto px-6 max-w-3xl text-center">
-                    <h2 class="text-3xl md:text-5xl font-bold mb-4 leading-tight">A Verdade Que a Indústria do Fitness <span class="text-red-500">Esconde</span></h2>
-                    <div class="section-card bg-dark-primary p-8 mt-8">
-                        <!-- TEXTO AJUSTADO -->
-                        <p class="text-lg text-left text-muted-text space-y-4"><span>Eles querem que você fique preso na mensalidade, no suplemento, no ego de academia.</span><span class="block mt-4 font-bold text-light-text">Com a calistenia, você quebra essa corrente. O que realmente importa — controle, tendões, mobilidade — é conquistado com o peso do seu corpo. Com o Calistenia FX, em 8 semanas você supera 90% deles, sem gastar com porcaria.</span></p>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- RECAP E GARANTIA -->
-        <section class="py-20 relative">
-             <div class="aurora-bg">
-                <div class="aurora-blob top-1/2 left-1/4 w-96 h-96 bg-accent-blue transform -translate-x-1/2 -translate-y-1/2"></div>
-            </div>
-            <div class="container mx-auto px-6 relative">
-                <div class="grid lg:grid-cols-2 gap-12 items-center">
-                    <div class="section-card border-2 border-accent-blue shadow-2xl shadow-accent-blue/10">
-                        <h3 class="text-3xl font-bold mb-6 text-center">🎯 Resumo da sua vitória:</h3>
-                        <ul class="space-y-3 text-lg">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-3"></i>421 vídeos de calistenia</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-3"></i>1.000 gifs explicativos</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-3"></i>Planilhas de treino completas</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-3"></i>Comunidade de alunos</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-3"></i>3 bônus secretos (de graça hoje)</li>
-                            <li class="flex items-center font-bold"><i class="fas fa-check-circle text-green-400 mr-3"></i>Acesso vitalício + garantia de 30 dias</li>
-                        </ul>
-                        <a href="#oferta-final" class="cta-button text-white font-bold py-4 px-10 rounded-full text-lg block mt-8 text-center">Quero garantir meu acesso agora!</a>
-                    </div>
-                    <div class="text-center p-8">
-                        <i class="fas fa-shield-alt text-7xl text-accent-blue mb-4"></i>
-                        <h3 class="text-3xl font-bold mb-3">✅ Risco Zero | Garantia de 30 Dias</h3>
-                        <p class="text-muted-text text-lg">Não curtiu? O conteúdo não era o que você esperava? Você tem 30 dias pra pedir reembolso completo. Sem enrolação. O acesso é vitalício. Você compra uma vez e é seu pra sempre.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- OFERTA FINAL (AJUSTADA) -->
-        <section id="oferta-final" class="py-20 bg-dark-secondary">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-5xl font-extrabold mb-4">🎯 Oferta Especial Por Tempo Limitado</h2>
-                <!-- PREÇO AJUSTADO -->
-                <p class="text-3xl text-muted-text line-through">De R$79,90</p>
-                <p class="text-5xl md:text-7xl font-extrabold my-4"><span class="gradient-text">Hoje por apenas R$16,90</span></p>
+        <!-- ART & BRANDING SECTION -->
+        <section class="portfolio" id="portfolio">
+            <div class="container">
+                <h2 class="section-title reveal">Featured Projects</h2>
+                <p class="section-subtitle reveal">A selection of my work in branding, UI/UX, and visual identity. Each project is a story of collaboration and creative problem-solving.</p>
                 
-                <!-- BOTÃO FINAL AJUSTADO -->
-                <a href="https://checkout.pagarbem.site/VCCL1O8SC30I" class="cta-button text-white font-extrabold py-5 px-14 rounded-full text-2xl inline-block shadow-lg shadow-accent-blue/20">
-                    QUERO COMPRAR! 🔥
-                </a>
-                
-                <p class="text-muted-text mt-6"><i class="fas fa-hourglass-half mr-2"></i>Atenção: Essa condição pode sair do ar a qualquer momento.</p>
-            </div>
-        </section>
-
-        <!-- FAQ (MOVIDO E REESTILIZADO) -->
-        <section class="py-20">
-            <div class="container mx-auto px-6 max-w-4xl">
-                <!-- TÍTULO AJUSTADO (MENOR) -->
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Tire Suas Últimas Dúvidas <span class="gradient-text">(Respostas Diretas)</span></h2>
-                <div class="space-y-4">
-                    <!-- DESIGN DOS CARDS SIMPLIFICADO -->
-                    <div class="bg-dark-secondary p-6 rounded-lg">
-                        <h3 class="text-xl font-bold mb-2">❓ Nunca fiz nada, esse treino é pra mim?</h3>
-                        <p class="text-muted-text">🧠 O programa começa do absoluto zero, com variações fáceis até pra quem não sabe o que é uma flexão. Se tu consegue levantar da cama, tu consegue fazer.</p>
+                <div class="art-gallery">
+                    <!-- Substitua as imagens e textos pelos seus projetos -->
+                    <div class="art-card reveal">
+                        <img src="https://i.imgur.com/sKFTs4p.png" alt="Project 1">
+                        <h3>Project Cygnus - UI/UX</h3>
+                        <p>A complete redesign for a fintech startup's mobile app, focusing on user flow and a clean interface.</p>
                     </div>
-                    <div class="bg-dark-secondary p-6 rounded-lg">
-                        <h3 class="text-xl font-bold mb-2">❓ Preciso de equipamento?</h3>
-                        <p class="text-muted-text">🛑 NÃO, Teu corpo é teu equipamento. Tu vai usar chão, parede, barra de rua e tua vontade de parar de ser um frango.</p>
+                    <div class="art-card reveal">
+                        <img src="https://i.imgur.com/vHqLgIZ.png" alt="Project 2">
+                        <h3>Aether Branding</h3>
+                        <p>Full brand identity creation for a futuristic tech company, from logo to brand guidelines.</p>
                     </div>
-                    <div class="bg-dark-secondary p-6 rounded-lg">
-                        <h3 class="text-xl font-bold mb-2">❓ Tenho pouco tempo, dá pra fazer mesmo assim?</h3>
-                        <p class="text-muted-text">⏱️ Dá sim, guerreiro. As rotinas foram montadas pra caber até em dia corrido. 15 a 30 minutos por dia.</p>
-                    </div>
-                    <div class="bg-dark-secondary p-6 rounded-lg">
-                        <h3 class="text-xl font-bold mb-2">❓ E se eu não curtir o programa?</h3>
-                        <p class="text-muted-text">💰 Tu tem 30 dias de garantia. Se achar que não vale, devolvemos seu dinheiro de volta.</p>
-                    </div>
-                    <div class="bg-dark-secondary p-6 rounded-lg">
-                        <h3 class="text-xl font-bold mb-2">❓ É vitalício? Posso acessar pra sempre?</h3>
-                        <p class="text-muted-text">🔒 Sim. Pagou uma vez, é teu. Tu vai ter acesso pros teus filhos, neto, papagaio... o que tu quiser. Só não vai ter mais desculpa, bora pra cima!</p>
+                    <div class="art-card reveal">
+                        <img src="https://i.imgur.com/n1M3bLg.png" alt="Project 3">
+                        <h3>Helios Illustrations</h3>
+                        <p>A series of custom illustrations for a marketing campaign, blending abstract and tech themes.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-    <!-- RODAPÉ -->
-    <footer class="bg-dark-primary border-t border-dark-secondary py-8">
-        <div class="container mx-auto px-6 text-center text-muted-text text-sm">
-            <p class="mb-2">Calistenia FX | 2024 | Todos os direitos reservados</p>
-            <div class="space-x-4">
-                <a href="#" class="hover:text-light-text">Termos de uso</a><span>|</span>
-                <a href="#" class="hover:text-light-text">Política de privacidade</a><span>|</span>
-                <a href="#" class="hover:text-light-text">Suporte</a>
+        <!-- CAROUSEL SECTION -->
+        <section class="logo-carousel">
+            <div class="marquee">
+                <div class="marquee-track">
+                    <!-- Coloque imagens (logos, ícones, etc.) aqui. Duplique o conjunto para o efeito infinito -->
+                    <div class="marquee-item"><img src="https://i.imgur.com/DaW9WFN.png" alt="Logo 1"></div>
+                    <div class="marquee-item"><img src="https://i.imgur.com/DaW9WFN.png" alt="Logo 2"></div>
+                    <div class="marquee-item"><img src="https://i.imgur.com/DaW9WFN.png" alt="Logo 3"></div>
+                    <div class="marquee-item"><img src="https://i.imgur.com/DaW9WFN.png" alt="Logo 4"></div>
+                    <div class="marquee-item"><img src="https://i.imgur.com/DaW9WFN.png" alt="Logo 5"></div>
+                    <div class="marquee-item"><img src="https://i.imgur.com/DaW9WFN.png" alt="Logo 6"></div>
+                    <!-- Duplicatas -->
+                    <div class="marquee-item"><img src="https://i.imgur.com/DaW9WFN.png" alt="Logo 1"></div>
+                    <div class="marquee-item"><img src="https://i.imgur.com/DaW9WFN.png" alt="Logo 2"></div>
+                    <div class="marquee-item"><img src="https://i.imgur.com/DaW9WFN.png" alt="Logo 3"></div>
+                    <div class="marquee-item"><img src="https://i.imgur.com/DaW9WFN.png" alt="Logo 4"></div>
+                    <div class="marquee-item"><img src="https://i.imgur.com/DaW9WFN.png" alt="Logo 5"></div>
+                    <div class="marquee-item"><img src="https://i.imgur.com/DaW9WFN.png" alt="Logo 6"></div>
+                </div>
             </div>
+        </section>
+
+        <!-- MOTION SECTION -->
+        <section class="motion">
+            <div class="container">
+                <h2 class="section-title reveal">Motion Graphics</h2>
+                <p class="section-subtitle reveal">Bringing brands to life through animation. Here are some examples of logo animations and explainer videos.</p>
+
+                <div class="motion-gallery">
+                    <!-- Substitua pelo seu vídeo de motion -->
+                    <div class="motion-video reveal">
+                        <video src="https://video.wixstatic.com/video/512b9f_ac37a61a1aed45748dfa627bc6c2c070/1080p/mp4/file.mp4" autoplay loop muted playsinline></video>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section class="contact" id="contact">
+            <div class="container reveal">
+                <h2 class="section-title">Let's Create Together</h2>
+                <p class="section-subtitle">Have a project in mind or just want to say hi? My inbox is always open.</p>
+                <a href="mailto:seu-email@dominio.com" class="contact-email">seu-email@dominio.com</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 Ricardo Alves. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // --- SCRIPT DO CURSOR ---
+        const cursor = document.querySelector('.cursor');
+        const links = document.querySelectorAll('a, button');
+
+        document.addEventListener('mousemove', e => {
+            cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`;
+        });
+
+        links.forEach(link => {
+            link.addEventListener('mouseover', () => {
+                cursor.classList.add('grow');
+            });
+            link.addEventListener('mouseleave', () => {
+                cursor.classList.remove('grow');
+            });
+        });
+
+        // --- SCRIPT DE ANIMAÇÃO DE SCROLL ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.1 // Revela quando 10% do elemento estiver visível
+        });
+
+        const revealElements = document.querySelectorAll('.reveal');
+        revealElements.forEach((el) => observer.observe(el));
+    </script>
 
 </body>
 </html>
