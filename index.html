@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ricardo Alves - Designer Portfolio</title>
+    <title>Ricardo Alves - Portfólio de Designer</title>
 
     <!-- Google Fonts: Space Grotesk -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,71 +14,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* --- DESIGN SYSTEM & VARIABLES --- */
         :root {
             --color-bg: #0D1117; /* Cinza Escuro (GitHub Dark) */
             --color-bg-secondary: #161B22; /* Azul-acinzentado escuro */
-            --color-glass: rgba(22, 27, 34, 0.6); /* Cor do vidro com transparência */
+            --color-glass: rgba(22, 27, 34, 0.6);
             --color-border: rgba(255, 255, 255, 0.1);
             --color-text: #c9d1d9;
             --color-text-heading: #ffffff;
             --color-accent: #30A2FF; /* Azul Elétrico */
-            
             --font-main: 'Space Grotesk', sans-serif;
         }
 
-        /* --- GLOBAL RESET & STYLES --- */
+        /* --- RESET GLOBAL E ESTILOS DE BASE --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; cursor: none; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: var(--font-main);
             color: var(--color-text);
             background-color: var(--color-bg);
-            background-image: radial-gradient(circle at 10% 10%, var(--color-accent) 0%, transparent 15%),
-                              radial-gradient(circle at 80% 90%, #6c40bd 0%, transparent 20%);
+            background-image: radial-gradient(circle at 10% 10%, rgba(48, 162, 255, 0.3) 0%, transparent 25%),
+                              radial-gradient(circle at 90% 80%, rgba(76, 52, 128, 0.3) 0%, transparent 25%);
             background-attachment: fixed;
             overflow-x: hidden;
         }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-        section { padding: 120px 0; position: relative; }
-        .section-title {
-            font-size: 3rem;
-            color: var(--color-text-heading);
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        .section-title::before {
-            content: '';
-            display: block;
-            width: 40px;
-            height: 3px;
-            background-color: var(--color-accent);
-        }
-        .section-subtitle { font-size: 1.2rem; color: var(--color-text); max-width: 600px; margin-bottom: 60px; }
-        a, button { cursor: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        section { padding: 120px 0; }
+        h1, h2, h3 { color: var(--color-text-heading); font-weight: 700; }
+        p { line-height: 1.6; }
+        a { text-decoration: none; color: var(--color-accent); }
 
-        /* --- CURSOR INTERATIVO --- */
-        .cursor {
-            width: 25px;
-            height: 25px;
-            border: 2px solid var(--color-accent);
-            border-radius: 50%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: 9999;
-            transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease;
-        }
-        .cursor.grow {
-            transform: scale(2.5);
-            background-color: rgba(48, 162, 255, 0.2);
-            border-color: transparent;
-        }
-
-        /* --- ANIMAÇÃO DE SCROLL --- */
+        /* --- ANIMAÇÃO DE SCROLL (PARA SEÇÕES FORA DO PORTFÓLIO PRINCIPAL) --- */
         .reveal {
             opacity: 0;
             transform: translateY(50px);
@@ -96,237 +61,216 @@
             left: 0;
             width: 100%;
             padding: 20px 0;
-            z-index: 100;
+            z-index: 1000;
             background: rgba(13, 17, 23, 0.7);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--color-border);
         }
         .header .container { display: flex; justify-content: space-between; align-items: center; }
         .header .logo { height: 40px; }
-        .contact-button {
-            background: transparent;
-            border: 2px solid var(--color-accent);
-            color: var(--color-accent);
-            padding: 10px 25px;
-            text-decoration: none;
+        .cta-button {
+            background-color: var(--color-accent);
+            color: var(--color-bg);
+            padding: 12px 30px;
             font-weight: 700;
             border-radius: 50px;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .contact-button:hover { background-color: var(--color-accent); color: var(--color-bg); }
+        .cta-button:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(48, 162, 255, 0.5); }
 
         /* --- HERO --- */
         .hero {
-            min-height: 100vh;
+            min-height: 90vh;
             display: flex;
             align-items: center;
+            text-align: center;
         }
-        .hero-title {
-            font-size: clamp(3rem, 7vw, 5.5rem);
-            color: var(--color-text-heading);
-            line-height: 1.1;
-        }
-        .hero-title span { color: var(--color-accent); }
-        .hero-subtitle { font-size: 1.5rem; max-width: 600px; margin-top: 20px; }
-        .scroll-down {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: var(--color-text);
-            font-size: 0.9rem;
+        .hero .container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
         }
-        .scroll-down i { font-size: 1.5rem; animation: bounce 2s infinite; }
-        @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }
-
-        /* --- GALERIA DE ARTE (GRID ASSIMÉTRICO) --- */
-        .art-gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+        .hero-title { font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.1; max-width: 800px; }
+        .hero-title span { color: var(--color-accent); }
+        .hero-subtitle { font-size: 1.2rem; max-width: 600px; margin: 20px 0 30px 0; }
+        
+        /* --- EXPERIÊNCIA DO PORTFÓLIO "A LENTE" --- */
+        .portfolio-wrapper {
+            position: relative;
+            padding: 80px 0;
+            cursor: none; /* Esconde o cursor padrão dentro desta área */
         }
-        .art-card {
-            background: var(--color-glass);
-            border: 1px solid var(--color-border);
-            border-radius: 15px;
-            padding: 20px;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        /* A "LENTE" / CURSOR */
+        #lens {
+            position: fixed;
+            width: 300px; /* Tamanho da lente */
+            height: 300px;
+            border-radius: 50%;
+            border: 2px solid white;
+            pointer-events: none;
+            z-index: 999;
+            transition: transform 0.2s ease-out;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
         }
-        .art-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 0 30px rgba(48, 162, 255, 0.2);
+        /* CAMADAS DO EFEITO */
+        .portfolio-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
         }
-        .art-card img { width: 100%; border-radius: 8px; }
-        .art-card h3 { margin: 15px 0 5px 0; color: var(--color-text-heading); }
-        .art-card p { font-size: 0.9rem; }
-        /* Posicionamento assimétrico */
-        .art-card:nth-child(2) { transform: translateY(60px); }
-        .art-card:nth-child(3) { transform: translateY(30px); }
-
-        /* --- CARROSSEL INFINITO (MARQUEE) --- */
-        .marquee {
+        .portfolio-background {
+            filter: grayscale(100%) brightness(0.4);
+            z-index: 1;
+        }
+        .portfolio-foreground {
+            z-index: 2;
+            clip-path: circle(150px at 50% 50%); /* A mágica acontece aqui */
+        }
+        
+        /* GRID MASONRY PARA AS ARTES */
+        .art-grid {
+            column-count: 4; /* Número de colunas */
+            column-gap: 20px;
+        }
+        .art-grid .art-item {
+            margin-bottom: 20px;
+            display: inline-block;
             width: 100%;
             overflow: hidden;
-            padding: 40px 0;
-            background-color: var(--color-bg-secondary);
-            border-top: 1px solid var(--color-border);
-            border-bottom: 1px solid var(--color-border);
         }
-        .marquee-track {
-            display: flex;
-            width: max-content;
-            animation: scroll-left 20s linear infinite;
+        .art-grid .art-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
         }
-        .marquee-item {
-            flex-shrink: 0;
-            width: 250px;
-            margin: 0 20px;
-            opacity: 0.6;
-            transition: opacity 0.3s ease;
-        }
-        .marquee-item:hover { opacity: 1; }
-        .marquee-item img { max-width: 100%; height: auto; }
-        @keyframes scroll-left { from { transform: translateX(0%); } to { transform: translateX(-50%); } }
 
-        /* --- MOTION VIDEOS --- */
+        /* Seções abaixo da experiência principal */
+        .section-title-wrapper {
+            padding: 120px 0 60px 0;
+            text-align: center;
+        }
+        .section-title { font-size: 3rem; margin: 0 auto; max-width: 700px; }
+        .section-title span { color: var(--color-accent); }
+        
         .motion-gallery {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
         }
-        .motion-video video {
+        .motion-gallery video {
             width: 100%;
             border-radius: 15px;
             border: 1px solid var(--color-border);
         }
 
         /* --- CONTATO --- */
-        .contact { text-align: center; }
-        .contact .section-title { justify-content: center; }
-        .contact .section-title::after { content: ''; display: block; width: 40px; height: 3px; background-color: var(--color-accent); }
-        .contact-email {
-            font-size: clamp(1.5rem, 4vw, 3rem);
-            color: var(--color-text-heading);
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 20px;
-            position: relative;
+        .contact {
+            background-color: var(--color-bg-secondary);
+            border-radius: 20px;
+            padding: 80px 40px;
+            text-align: center;
         }
-        .contact-email::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--color-accent);
-            transform: scaleX(0);
-            transform-origin: bottom right;
-            transition: transform 0.3s ease-out;
-        }
-        .contact-email:hover::after { transform: scaleX(1); transform-origin: bottom left; }
 
         /* --- FOOTER --- */
         .footer { padding: 30px 0; text-align: center; border-top: 1px solid var(--color-border); }
 
         /* --- RESPONSIVIDADE --- */
+        @media (max-width: 1024px) {
+            .art-grid { column-count: 3; }
+        }
         @media (max-width: 768px) {
-            .section-title { font-size: 2.5rem; }
-            .art-gallery { grid-template-columns: 1fr; }
-            .art-card:nth-child(2), .art-card:nth-child(3) { transform: translateY(0); }
+            .art-grid { column-count: 2; }
+            .motion-gallery { grid-template-columns: 1fr; }
+            /* Desativa o efeito da lente em telas touch para uma melhor experiência */
+            .portfolio-wrapper { cursor: default; }
+            #lens { display: none; }
+            .portfolio-background { filter: none; }
+            .portfolio-foreground { clip-path: none; }
         }
     </style>
 </head>
 <body>
 
-    <div class="cursor"></div>
-
     <header class="header">
         <div class="container">
-            <img src="https://i.imgur.com/DaW9WFN.png" alt="R Logo" class="logo">
-            <a href="#contact" class="contact-button">CONTACT</a>
+            <img src="https://i.imgur.com/DaW9WFN.png" alt="Logo R" class="logo">
+            <a href="#contact" class="cta-button">Ver Planos</a>
         </div>
     </header>
 
     <main>
         <!-- HERO SECTION -->
-        <section class="hero" id="home">
+        <section class="hero">
             <div class="container">
                 <h1 class="hero-title reveal">
-                    Visuals that <span>resonate.</span><br>
-                    Experiences that engage.
+                    Designer multidisciplinar transformando <span>ideias</span> em experiências digitais memoráveis.
                 </h1>
                 <p class="hero-subtitle reveal">
-                    I'm Ricardo, a multi-disciplinary designer crafting beautiful and functional digital solutions for forward-thinking brands.
+                    Meu nome é Ricardo. Sou especialista em identidade visual, UI/UX e motion graphics, com foco em criar soluções que geram resultados para marcas ambiciosas.
                 </p>
-            </div>
-            <div class="scroll-down">
-                <p>Scroll to explore</p>
-                <i class="fas fa-arrow-down"></i>
+                <a href="#portfolio" class="cta-button reveal">Ver Projetos</a>
             </div>
         </section>
 
-        <!-- ART & BRANDING SECTION -->
-        <section class="portfolio" id="portfolio">
-            <div class="container">
-                <h2 class="section-title reveal">Featured Projects</h2>
-                <p class="section-subtitle reveal">A selection of my work in branding, UI/UX, and visual identity. Each project is a story of collaboration and creative problem-solving.</p>
-                
-                <div class="art-gallery">
-                    <!-- Substitua as imagens e textos pelos seus projetos -->
-                    <div class="art-card reveal">
-                        <img src="https://i.imgur.com/sKFTs4p.png" alt="Project 1">
-                        <h3>Project Cygnus - UI/UX</h3>
-                        <p>A complete redesign for a fintech startup's mobile app, focusing on user flow and a clean interface.</p>
-                    </div>
-                    <div class="art-card reveal">
-                        <img src="https://i.imgur.com/vHqLgIZ.png" alt="Project 2">
-                        <h3>Aether Branding</h3>
-                        <p>Full brand identity creation for a futuristic tech company, from logo to brand guidelines.</p>
-                    </div>
-                    <div class="art-card reveal">
-                        <img src="https://i.imgur.com/n1M3bLg.png" alt="Project 3">
-                        <h3>Helios Illustrations</h3>
-                        <p>A series of custom illustrations for a marketing campaign, blending abstract and tech themes.</p>
+        <!-- SEÇÃO DO PORTFÓLIO COM A LENTE INTERATIVA -->
+        <div id="portfolio" class="portfolio-wrapper">
+            <!-- A LENTE (CURSOR) -->
+            <div id="lens"></div>
+
+            <!-- CAMADA DE FUNDO (PRETO E BRANCO) -->
+            <div class="portfolio-layer portfolio-background">
+                <div class="container">
+                    <div class="art-grid">
+                        <!-- COLOQUE SUAS 20+ IMAGENS AQUI -->
+                        <div class="art-item"><img src="https://i.imgur.com/sKFTs4p.png" alt="Arte 1"></div>
+                        <div class="art-item"><img src="https://i.imgur.com/rHXeAkr.png" alt="Arte 2"></div>
+                        <div class="art-item"><img src="https://i.imgur.com/vHqLgIZ.png" alt="Arte 3"></div>
+                        <div class="art-item"><img src="https://i.imgur.com/n1M3bLg.png" alt="Arte 4"></div>
+                        <div class="art-item"><img src="https://i.imgur.com/7dGudBS.png" alt="Arte 5"></div>
+                        <div class="art-item"><img src="https://i.imgur.com/IOcsZ8u.png" alt="Arte 6"></div>
+                        <div class="art-item"><img src="https://i.imgur.com/Arez2gm.png" alt="Arte 7"></div>
+                        <div class="art-item"><img src="https://i.imgur.com/poXtryi.jpeg" alt="Arte 8"></div>
+                        <div class="art-item"><img src="https://i.imgur.com/7rtYqOn.jpeg" alt="Arte 9"></div>
+                        <!-- Adicione mais imagens conforme necessário -->
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- CAROUSEL SECTION -->
-        <section class="logo-carousel">
-            <div class="marquee">
-                <div class="marquee-track">
-                    <!-- Coloque imagens (logos, ícones, etc.) aqui. Duplique o conjunto para o efeito infinito -->
-                    <div class="marquee-item"><img src="https://i.imgur.com/DaW9WFN.png" alt="Logo 1"></div>
-                    <div class="marquee-item"><img src="https://i.imgur.com/DaW9WFN.png" alt="Logo 2"></div>
-                    <div class="marquee-item"><img src="https://i.imgur.com/DaW9WFN.png" alt="Logo 3"></div>
-                    <div class="marquee-item"><img src="https://i.imgur.com/DaW9WFN.png" alt="Logo 4"></div>
-                    <div class="marquee-item"><img src="https://i.imgur.com/DaW9WFN.png" alt="Logo 5"></div>
-                    <div class="marquee-item"><img src="https://i.imgur.com/DaW9WFN.png" alt="Logo 6"></div>
-                    <!-- Duplicatas -->
-                    <div class="marquee-item"><img src="https://i.imgur.com/DaW9WFN.png" alt="Logo 1"></div>
-                    <div class="marquee-item"><img src="https://i.imgur.com/DaW9WFN.png" alt="Logo 2"></div>
-                    <div class="marquee-item"><img src="https://i.imgur.com/DaW9WFN.png" alt="Logo 3"></div>
-                    <div class="marquee-item"><img src="https://i.imgur.com/DaW9WFN.png" alt="Logo 4"></div>
-                    <div class="marquee-item"><img src="https://i.imgur.com/DaW9WFN.png" alt="Logo 5"></div>
-                    <div class="marquee-item"><img src="https://i.imgur.com/DaW9WFN.png" alt="Logo 6"></div>
+            <!-- CAMADA DA FRENTE (COLORIDA E REVELADA PELA LENTE) -->
+            <div class="portfolio-layer portfolio-foreground">
+                <div class="container">
+                    <div class="art-grid">
+                        <!-- REPITA EXATAMENTE AS MESMAS IMAGENS NA MESMA ORDEM -->
+                        <div class="art-item"><img src="https://i.imgur.com/sKFTs4p.png" alt="Arte 1"></div>
+                        <div class="art-item"><img src="https://i.imgur.com/rHXeAkr.png" alt="Arte 2"></div>
+                        <div class="art-item"><img src="https://i.imgur.com/vHqLgIZ.png" alt="Arte 3"></div>
+                        <div class="art-item"><img src="https://i.imgur.com/n1M3bLg.png" alt="Arte 4"></div>
+                        <div class="art-item"><img src="https://i.imgur.com/7dGudBS.png" alt="Arte 5"></div>
+                        <div class="art-item"><img src="https://i.imgur.com/IOcsZ8u.png" alt="Arte 6"></div>
+                        <div class="art-item"><img src="https://i.imgur.com/Arez2gm.png" alt="Arte 7"></div>
+                        <div class="art-item"><img src="https://i.imgur.com/poXtryi.jpeg" alt="Arte 8"></div>
+                        <div class="art-item"><img src="https://i.imgur.com/7rtYqOn.jpeg" alt="Arte 9"></div>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- MOTION SECTION -->
+        <!-- SEÇÃO DE MOTION -->
         <section class="motion">
             <div class="container">
-                <h2 class="section-title reveal">Motion Graphics</h2>
-                <p class="section-subtitle reveal">Bringing brands to life through animation. Here are some examples of logo animations and explainer videos.</p>
-
+                <div class="section-title-wrapper reveal">
+                    <h2 class="section-title">Dando <span>vida</span> a marcas através do movimento.</h2>
+                </div>
                 <div class="motion-gallery">
                     <!-- Substitua pelo seu vídeo de motion -->
+                    <div class="motion-video reveal">
+                        <video src="https://video.wixstatic.com/video/512b9f_ac37a61a1aed45748dfa627bc6c2c070/1080p/mp4/file.mp4" autoplay loop muted playsinline></video>
+                    </div>
+                    <!-- Adicione outro vídeo se tiver -->
                     <div class="motion-video reveal">
                         <video src="https://video.wixstatic.com/video/512b9f_ac37a61a1aed45748dfa627bc6c2c070/1080p/mp4/file.mp4" autoplay loop muted playsinline></video>
                     </div>
@@ -334,39 +278,47 @@
             </div>
         </section>
 
-        <!-- CONTACT SECTION -->
-        <section class="contact" id="contact">
+        <!-- SEÇÃO DE CONTATO -->
+        <section id="contact">
             <div class="container reveal">
-                <h2 class="section-title">Let's Create Together</h2>
-                <p class="section-subtitle">Have a project in mind or just want to say hi? My inbox is always open.</p>
-                <a href="mailto:seu-email@dominio.com" class="contact-email">seu-email@dominio.com</a>
+                <div class="contact">
+                    <h2 class="section-title">Pronto para criar algo incrível?</h2>
+                    <p style="max-width: 500px; margin: 20px auto 30px auto;">Estou disponível para novos projetos e colaborações. Vamos transformar sua visão em realidade.</p>
+                    <!-- Adicione o link do seu formulário/plataforma aqui -->
+                    <a href="#" class="cta-button">Solicitar Demanda</a>
+                </div>
             </div>
         </section>
     </main>
 
     <footer class="footer">
         <div class="container">
-            <p>© 2024 Ricardo Alves. All rights reserved.</p>
+            <p>© 2024 Ricardo Alves. Todos os direitos reservados.</p>
         </div>
     </footer>
 
     <script>
-        // --- SCRIPT DO CURSOR ---
-        const cursor = document.querySelector('.cursor');
-        const links = document.querySelectorAll('a, button');
+        // --- SCRIPT DO EFEITO "A LENTE" ---
+        const lens = document.getElementById('lens');
+        const foreground = document.querySelector('.portfolio-foreground');
+        const portfolioWrapper = document.querySelector('.portfolio-wrapper');
 
-        document.addEventListener('mousemove', e => {
-            cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`;
-        });
+        // Apenas executa em dispositivos não-touch (com mouse)
+        if (window.matchMedia("(pointer: fine)").matches) {
+            portfolioWrapper.addEventListener('mousemove', (e) => {
+                // Posiciona a lente visual
+                lens.style.transform = `translate(${e.clientX - 150}px, ${e.clientY - 150}px)`;
 
-        links.forEach(link => {
-            link.addEventListener('mouseover', () => {
-                cursor.classList.add('grow');
+                // Calcula a posição do mouse relativa ao container do portfólio
+                const rect = portfolioWrapper.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                // Atualiza o clip-path da camada da frente
+                foreground.style.clipPath = `circle(150px at ${x}px ${y}px)`;
             });
-            link.addEventListener('mouseleave', () => {
-                cursor.classList.remove('grow');
-            });
-        });
+        }
+
 
         // --- SCRIPT DE ANIMAÇÃO DE SCROLL ---
         const observer = new IntersectionObserver((entries) => {
@@ -376,7 +328,7 @@
                 }
             });
         }, {
-            threshold: 0.1 // Revela quando 10% do elemento estiver visível
+            threshold: 0.1
         });
 
         const revealElements = document.querySelectorAll('.reveal');
