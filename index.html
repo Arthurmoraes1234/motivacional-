@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ricardo Alves - Portfólio de Designer</title>
+    <title>Arthur Rodrigues - Portfólio de Designer</title>
 
     <!-- Google Fonts: Space Grotesk -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,6 +18,8 @@
             --text-white: #ffffff;
             --text-gray: #b0c4de;
             --accent-blue: #00BFFF;
+            --glitch-red: #ff0055;
+            --glitch-cyan: #00ffee;
             --border-color: rgba(0, 191, 255, 0.2);
             --font-main: 'Space Grotesk', sans-serif;
         }
@@ -57,34 +59,44 @@
             box-shadow: 0 0 15px var(--accent-blue);
         }
 
-        /* --- SEÇÃO SOBRE MIM (HERO) --- */
-        .hero { display: flex; align-items: center; min-height: 90vh; }
-        .hero-grid { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 50px; }
-        .profile-picture {
-            width: 180px; height: 180px; border-radius: 50%; border: 3px solid var(--accent-blue);
-            padding: 5px; box-shadow: 0 0 25px rgba(0, 191, 255, 0.2);
+        /* --- HERO "GLITCH & REVEAL" --- */
+        .hero { display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+        .hero-card {
+            position: relative;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            align-items: center;
+            gap: 40px;
+            background-color: var(--bg-dark-gray);
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 900px;
+            overflow: hidden; /* Importante para o efeito de glitch */
         }
-        .profile-picture img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+        .profile-picture-container { position: relative; width: 180px; height: 180px; }
+        .profile-picture { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 3px solid var(--accent-blue); }
         
-        /* Efeito de digitação */
-        .hero-title {
-            font-size: 3.5rem; line-height: 1.2; margin-bottom: 15px;
-            display: inline-block;
-        }
-        .typing-container { display: inline-block; }
-        .typing-effect {
-            width: 0;
-            overflow: hidden;
-            white-space: nowrap;
-            border-right: 3px solid var(--accent-blue);
-            animation: typing 3s steps(30, end) forwards, blink-caret .75s step-end infinite;
-        }
-        @keyframes typing { from { width: 0 } to { width: 100% } }
-        @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: var(--accent-blue); } }
-        
+        .hero-title { font-size: 2.8rem; line-height: 1.2; margin-bottom: 15px; }
+        .hero-title span { color: var(--accent-blue); }
         .hero-subtitle { font-size: 1.1rem; max-width: 600px; }
-        .hero-subtitle span { color: var(--text-white); font-weight: 700; }
-        
+        .hero-subtitle strong { color: var(--text-white); }
+
+        /* EFEITO GLITCH (A MÁGICA) */
+        @keyframes glitch-anim-1 { 0%, 100% { clip-path: inset(39% 0 41% 0); } 20% { clip-path: inset(10% 0 85% 0); } 40% { clip-path: inset(88% 0 1% 0); } 60% { clip-path: inset(45% 0 45% 0); } 80% { clip-path: inset(95% 0 5% 0); } }
+        @keyframes glitch-anim-2 { 0%, 100% { clip-path: inset(75% 0 5% 0); } 20% { clip-path: inset(5% 0 80% 0); } 40% { clip-path: inset(40% 0 30% 0); } 60% { clip-path: inset(80% 0 10% 0); } 80% { clip-path: inset(10% 0 90% 0); } }
+        .hero-card::before, .hero-card::after {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--bg-dark-gray); opacity: 0.8;
+            transition: opacity 0.4s ease;
+        }
+        .hero-card::before { animation: glitch-anim-1 2s infinite linear alternate-reverse; color: var(--glitch-red); z-index: 2;}
+        .hero-card::after { animation: glitch-anim-2 1.5s infinite linear alternate-reverse; color: var(--glitch-cyan); z-index: 2;}
+        .hero-card > * { transition: filter 0.4s ease; filter: blur(0.5px); z-index: 1; position: relative; }
+        /* Estado revelado no hover */
+        .hero-card:hover::before, .hero-card:hover::after { opacity: 0; }
+        .hero-card:hover > * { filter: blur(0); }
+
         /* --- SEÇÃO PORTFÓLIO --- */
         .section-title { text-align: center; font-size: 2.8rem; margin-bottom: 80px; }
         .category-block { margin-bottom: 100px; }
@@ -94,20 +106,13 @@
             display: inline-block;
         }
         .art-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
-        .art-thumb {
-            display: block; overflow: hidden; border-radius: 12px; position: relative;
-            border: 1px solid var(--border-color);
-        }
-        .art-thumb img {
-            width: 100%; height: 100%; object-fit: cover; display: block;
-            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
+        .art-thumb { display: block; overflow: hidden; border-radius: 12px; position: relative; border: 1px solid var(--border-color); }
+        .art-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
         .art-thumb:hover img { transform: scale(1.08); }
         .art-thumb::after {
             content: 'Ver Arte'; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(10, 15, 44, 0.7); color: var(--text-white);
-            display: flex; justify-content: center; align-items: center;
-            font-weight: 700; opacity: 0; transition: opacity 0.4s ease;
+            display: flex; justify-content: center; align-items: center; font-weight: 700; opacity: 0; transition: opacity 0.4s ease;
         }
         .art-thumb:hover::after { opacity: 1; }
 
@@ -119,29 +124,19 @@
             opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
         }
         .lightbox:target { opacity: 1; pointer-events: auto; }
-        .lightbox img {
-            max-width: 90%; max-height: 90%; object-fit: contain; border-radius: 8px;
-            box-shadow: 0 0 50px rgba(0,0,0,0.5);
-        }
-        .lightbox-close {
-            position: absolute; top: 30px; right: 30px; color: var(--text-white);
-            font-size: 2.5rem; text-decoration: none; transition: transform 0.3s ease;
-        }
+        .lightbox img { max-width: 90%; max-height: 90%; object-fit: contain; border-radius: 8px; box-shadow: 0 0 50px rgba(0,0,0,0.5); }
+        .lightbox-close { position: absolute; top: 30px; right: 30px; color: var(--text-white); font-size: 2.5rem; text-decoration: none; transition: transform 0.3s ease; }
         .lightbox-close:hover { transform: rotate(90deg) scale(1.1); }
         
         /* --- PLANOS --- */
         .plans-grid { display: flex; justify-content: center; align-items: stretch; flex-wrap: wrap; gap: 30px; }
         .plan-card {
-            background: linear-gradient(145deg, var(--bg-dark-gray), #1a1a2e);
-            border: 1px solid var(--border-color); border-radius: 15px; padding: 40px 30px;
-            text-align: center; width: 340px; display: flex; flex-direction: column;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: linear-gradient(145deg, var(--bg-dark-gray), #1a1a2e); border: 1px solid var(--border-color);
+            border-radius: 15px; padding: 40px 30px; text-align: center; width: 340px;
+            display: flex; flex-direction: column; transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .plan-card:hover { transform: translateY(-10px); }
-        .plan-card.highlighted {
-            transform: scale(1.05); border-color: var(--accent-blue);
-            box-shadow: 0 0 40px rgba(0, 191, 255, 0.2);
-        }
+        .plan-card.highlighted { transform: scale(1.05); border-color: var(--accent-blue); box-shadow: 0 0 40px rgba(0, 191, 255, 0.2); }
         .plan-card h3 { font-size: 1.8rem; margin-bottom: 15px; color: var(--accent-blue); }
         .plan-price { font-size: 2.5rem; margin-bottom: 10px; color: var(--text-white); }
         .plan-description { flex-grow: 1; margin-bottom: 30px; }
@@ -156,9 +151,9 @@
         
         /* --- RESPONSIVIDADE --- */
         @media (max-width: 992px) {
-            .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
-            .profile-picture { margin: 0 auto; }
-            .hero-title { font-size: 2.8rem; }
+            .hero-card { grid-template-columns: 1fr; text-align: center; }
+            .profile-picture-container { margin: 0 auto; }
+            .hero-title { font-size: 2.5rem; }
             .art-grid { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 768px) {
@@ -199,7 +194,7 @@
 
     <header class="header">
         <div class="container">
-            <img src="https://i.imgur.com/DaW9WFN.png" alt="Logo R - Ricardo Alves" class="header-logo">
+            <img src="https://i.imgur.com/DaW9WFN.png" alt="Logo R - Arthur Rodrigues" class="header-logo">
             <a href="#plans" class="header-button">Ver Planos</a>
         </div>
     </header>
@@ -208,16 +203,14 @@
         <!-- SEÇÃO HERO / SOBRE MIM -->
         <section class="section hero">
             <div class="container">
-                <div class="hero-grid">
-                    <div class="profile-picture">
-                        <img src="https://i.imgur.com/U2eSiug.png" alt="Foto de Ricardo Alves">
+                <div class="hero-card">
+                    <div class="profile-picture-container">
+                        <img src="https://i.imgur.com/U2eSiug.png" alt="Foto de Arthur Rodrigues" class="profile-picture">
                     </div>
                     <div class="hero-content">
-                        <h1 class="hero-title">
-                            <div class="typing-container"><span class="typing-effect">Design que Converte.</span></div>
-                        </h1>
+                        <h1 class="hero-title">Arthur <span>Rodrigues</span></h1>
                         <p class="hero-subtitle">
-                            Sou Ricardo Alves. <span>Com apenas 18 anos</span>, sou especialista em criar artes de alta performance para social media, ajudando agências e empresas a construir uma presença visual poderosa e que gera resultados.
+                            Com <strong>18 anos</strong> e mais de 6 anos de experiência, sou designer especialista em artes de alta performance para social media. Meu foco é ajudar agências e empresas a construir uma presença visual poderosa e que gera resultados.
                         </p>
                     </div>
                 </div>
@@ -305,6 +298,27 @@
                     <div class="plan-card highlighted">
                         <h3>Growth Plan</h3>
                         <div class="plan-price">R$450</div>
+                        <p class="plan-description">20 artes por mês. Ideal para agências e empresas que buscam crescimento e fluxo contínuo de conteúdo.</p>
+                        <a href="#" class="plan-button">Solicitar Demanda</a>
+                    </div>
+                    <div class="plan-card">
+                        <h3>Full Impact</h3>
+                        <div class="plan-price">R$650</div>
+                        <p class="plan-description">30 artes por mês. Domínio visual completo para máximo engajamento e resultados expressivos.</p>
+                        <a href="#" class="plan-button">Solicitar Demanda</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 Arthur Rodrigues. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>                 <div class="plan-price">R$450</div>
                         <p class="plan-description">20 artes por mês. Ideal para agências e empresas que buscam crescimento e fluxo contínuo de conteúdo.</p>
                         <a href="#" class="plan-button">Solicitar Demanda</a>
                     </div>
