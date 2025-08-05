@@ -3,570 +3,279 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arthur Rodrigues - Designer Profissional</title>
+    <title>Ricardo Alves - Designer Portfolio</title>
 
-    <!-- Google Fonts: Poppins (versátil e moderna) -->
+    <!-- Google Fonts: Space Grotesk -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome para Ícones (WhatsApp) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
     <style>
-        /* --- 🎨 DESIGN SYSTEM E VARIÁVEIS GLOBAIS --- */
+        /* --- DESIGN SYSTEM --- */
         :root {
             --bg-dark-blue: #0a0f2c;
-            --bg-dark-gray: #1e1e1e;
+            --bg-dark-gray: #161B22;
             --text-white: #ffffff;
-            --accent-glow: rgba(0, 191, 255, 0.6); /* Um brilho azul para contraste */
+            --text-gray: #a9b3c1;
+            --accent-blue: #00BFFF; /* Deep Sky Blue */
             --border-color: rgba(255, 255, 255, 0.1);
-            --font-family: 'Poppins', sans-serif;
+            --font-main: 'Space Grotesk', sans-serif;
         }
 
-        /* --- 🔄 RESET E ESTILOS GLOBAIS --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        /* --- RESET E ESTILOS GLOBAIS --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
-            font-family: var(--font-family);
+            font-family: var(--font-main);
             background-color: var(--bg-dark-blue);
-            color: var(--text-white);
+            color: var(--text-gray);
             overflow-x: hidden;
+            background-image: radial-gradient(circle at 1% 1%, rgba(0, 191, 255, 0.2), transparent 30%),
+                              radial-gradient(circle at 99% 99%, rgba(10, 15, 44, 0.5), transparent 40%);
+            background-attachment: fixed;
         }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        h1, h2, h3 { color: var(--text-white); font-weight: 700; }
+        .section { padding: 120px 0; }
+        .section-title { font-size: 3rem; text-align: center; margin-bottom: 60px; }
+        .section-title span { color: var(--accent-blue); }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        h1, h2, h3, h4 {
-            font-weight: 700;
-        }
-
-        /* --- ✨ ANIMAÇÃO DE SCROLL (CSS PURO) --- */
-        @keyframes fade-in-up {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .section {
-            padding: 100px 0;
-            /* Ativa a animação conforme a seção entra na tela */
-            animation: fade-in-up 1s both;
-            animation-timeline: view();
-            animation-range-start: entry 10%;
-            animation-range-end: cover 40%;
-        }
-
-        /* --- 🔵 CABEÇALHO (HEADER) --- */
+        /* --- HEADER --- */
         .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px 0;
-            background: rgba(10, 15, 44, 0.5); /* Fundo com transparência */
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px); /* Para compatibilidade */
-            border-bottom: 1px solid var(--border-color);
-            z-index: 1000;
+            position: fixed; top: 0; left: 0; width: 100%; padding: 20px 0;
+            background: rgba(10, 15, 44, 0.5); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color); z-index: 1000;
         }
-
-        .header .container {
-            display: flex;
-            justify-content: center; /* Centraliza a logo */
-            align-items: center;
-        }
-
-        .header-logo {
-            height: 45px;
-        }
-
-        /* --- 🧔 SEÇÃO SOBRE MIM (HERO) --- */
-        .hero {
-            display: flex;
-            align-items: center;
-            min-height: 80vh;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            max-width: 700px;
-            margin: 0 auto;
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        /* --- 🎨 SEÇÃO DE ARTES ESTÁTICAS --- */
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 60px;
-            position: relative;
-        }
-
-        /* Linha decorativa abaixo do título */
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-image: linear-gradient(90deg, transparent, var(--accent-glow), transparent);
-        }
-
-        .category-block {
-            margin-bottom: 80px;
-        }
-
-        .category-title {
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            border-left: 4px solid var(--accent-glow);
-            padding-left: 15px;
-        }
-
-        .art-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .art-card {
-            background-color: var(--bg-dark-gray);
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
+        .header .container { display: flex; justify-content: space-between; align-items: center; }
+        .header-logo { height: 45px; }
+        .cta-button {
+            background-color: var(--accent-blue); color: var(--bg-dark-blue);
+            padding: 12px 30px; text-decoration: none; font-weight: 700; border-radius: 50px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+        .cta-button:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(0, 191, 255, 0.5); }
         
-        .art-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 191, 255, 0.2);
+        /* --- HERO --- */
+        .hero { text-align: center; min-height: 90vh; display: flex; align-items: center; flex-direction: column; justify-content: center; }
+        .hero-title { font-size: clamp(3rem, 7vw, 5rem); line-height: 1.1; }
+        .hero-subtitle { font-size: 1.2rem; max-width: 600px; margin: 20px 0 40px 0; }
+        
+        /* --- PORTFÓLIO SCANNER INTERATIVO --- */
+        .portfolio-scanner { position: relative; cursor: none; }
+        #scanner-line {
+            position: fixed; top: 0; left: 50%;
+            width: 4px; height: 100%;
+            background-image: linear-gradient(to bottom, transparent, var(--accent-blue), transparent);
+            box-shadow: 0 0 15px var(--accent-blue);
+            z-index: 999; pointer-events: none;
+            transition: left 0.1s ease-out;
         }
+        .layer-container { position: relative; width: 100%; height: 100%; }
+        .portfolio-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .background-layer { filter: grayscale(1) brightness(0.6); z-index: 1; }
+        .foreground-layer { z-index: 2; clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%); } /* A mágica */
 
-        .art-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
+        .art-grid {
+            column-count: 4; column-gap: 20px;
         }
+        .art-grid .art-item { margin-bottom: 20px; display: inline-block; width: 100%; break-inside: avoid; }
+        .art-grid img { width: 100%; height: auto; display: block; border-radius: 8px; }
+        
+        /* --- CARROSSEL INFINITO (MARQUEE) --- */
+        .marquee { padding: 50px 0; background-color: var(--bg-dark-gray); overflow: hidden; white-space: nowrap; }
+        .marquee-track { display: inline-block; animation: scroll-left 40s linear infinite; }
+        .marquee-item { display: inline-block; margin: 0 40px; }
+        .marquee-item img { max-height: 40px; filter: grayscale(1) opacity(0.5); transition: filter 0.3s ease; }
+        .marquee-item:hover img { filter: grayscale(0) opacity(1); }
+        @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* --- 🧮 SEÇÃO CALCULADORA --- */
-        .calculator-wrapper {
-            background-color: var(--bg-dark-gray);
-            border: 1px solid var(--border-color);
-            border-radius: 15px;
-            padding: 40px;
-            max-width: 600px;
-            margin: 0 auto;
-            box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 12px;
-            background-color: var(--bg-dark-blue);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            color: var(--text-white);
-            font-size: 1rem;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .form-group input:focus {
-            outline: none;
-            border-color: var(--accent-glow);
-            box-shadow: 0 0 10px var(--accent-glow);
-        }
-
-        .total-price {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px dashed var(--border-color);
-            text-align: center;
-        }
-
-        .total-price h3 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-
-        .total-price .price-display {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--accent-glow);
-        }
-
-        /* --- 📦 SEÇÃO PLANOS --- */
-        .plans-grid {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-
+        /* --- MOTION DESIGN --- */
+        .motion-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; }
+        .motion-video { border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color); }
+        .motion-video video { width: 100%; display: block; }
+        
+        /* --- PLANOS --- */
+        .plans-grid { display: flex; justify-content: center; align-items: stretch; flex-wrap: wrap; gap: 30px; }
         .plan-card {
-            background-color: var(--bg-dark-gray);
-            border: 1px solid var(--border-color);
-            border-radius: 15px;
-            padding: 40px 30px;
-            text-align: center;
-            width: 320px;
-            transition: transform 0.3s ease;
+            background-color: var(--bg-dark-gray); border: 1px solid var(--border-color); border-radius: 15px;
+            padding: 40px 30px; text-align: center; width: 340px; display: flex; flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
-        .plan-card:hover {
-            transform: scale(1.05);
-        }
-        
+        .plan-card:hover { transform: translateY(-10px); }
         .plan-card.highlighted {
-            border: 2px solid var(--accent-glow);
-            transform: scale(1.05);
-            box-shadow: 0 0 25px rgba(0, 191, 255, 0.3);
+            border: 2px solid var(--accent-blue); transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 0 30px rgba(0, 191, 255, 0.2);
         }
-        
-        .plan-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-        }
-
-        .plan-price {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .plan-price span {
-            font-size: 1rem;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .plan-description {
-            margin-bottom: 30px;
-        }
-
+        .plan-card h3 { font-size: 1.8rem; margin-bottom: 15px; color: var(--accent-blue); }
+        .plan-card.highlighted h3 { color: var(--accent-blue); }
+        .plan-price { font-size: 2.5rem; margin-bottom: 10px; color: var(--text-white); }
+        .plan-price span { font-size: 1rem; color: var(--text-gray); }
+        .plan-description { flex-grow: 1; margin-bottom: 30px; }
         .plan-button {
-            display: inline-block;
-            width: 100%;
-            padding: 15px;
-            background-color: var(--accent-glow);
-            color: var(--bg-dark-blue);
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: background-color 0.3s ease;
+            display: inline-block; padding: 15px; background-color: var(--accent-blue); color: var(--bg-dark-blue);
+            font-weight: 700; text-decoration: none; border-radius: 8px; transition: transform 0.2s ease;
         }
+        .plan-button:hover { transform: scale(1.02); }
 
-        .plan-card.highlighted .plan-button {
-            background-color: var(--accent-glow);
-            box-shadow: 0 0 15px var(--accent-glow);
-        }
-
-        .plan-card:not(.highlighted) .plan-button {
-            background-color: transparent;
-            border: 1px solid var(--accent-glow);
-            color: var(--accent-glow);
-        }
+        /* --- FOOTER --- */
+        .footer { text-align: center; padding: 40px 0; border-top: 1px solid var(--border-color); }
         
-        .plan-card:not(.highlighted) .plan-button:hover {
-            background-color: var(--accent-glow);
-            color: var(--bg-dark-blue);
-        }
-
-
-        /* --- 📩 SEÇÃO CONTATO --- */
-        .contact-form {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .contact-button {
-            width: 100%;
-            padding: 15px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            background-color: var(--accent-glow);
-            border: none;
-            border-radius: 8px;
-            color: var(--bg-dark-blue);
-            cursor: pointer;
-            transition: box-shadow 0.3s ease;
-        }
-        
-        .contact-button:hover {
-            box-shadow: 0 0 20px var(--accent-glow);
-        }
-
-        /* --- 📱 BOTÃO FLUTUANTE DO WHATSAPP --- */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background-color: #25D366;
-            color: #FFF;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 2rem;
-            text-decoration: none;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-            z-index: 999;
-            transition: transform 0.3s ease;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
-
-        /* --- 👣 RODAPÉ --- */
-        .footer {
-            text-align: center;
-            padding: 40px 0;
-            border-top: 1px solid var(--border-color);
-            background-color: var(--bg-dark-gray);
-        }
-
-        /* --- 📱 MEDIA QUERIES PARA RESPONSIVIDADE --- */
+        /* --- RESPONSIVIDADE --- */
+        @media (max-width: 1024px) { .art-grid { column-count: 3; } }
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            .section-title {
-                font-size: 2rem;
-            }
-            .header-logo {
-                height: 35px;
-            }
-            .plans-grid {
-                flex-direction: column;
-            }
-            .plan-card {
-                width: 100%;
-                max-width: 350px;
-            }
-            .plan-card.highlighted {
-                transform: scale(1); /* Remove o zoom padrão no mobile */
-            }
+            .art-grid { column-count: 2; }
+            .motion-grid { grid-template-columns: 1fr; }
+            .plans-grid { flex-direction: column; align-items: center; }
+            .plan-card.highlighted { transform: scale(1); }
+            /* Desativa o scanner em telas touch, mostrando as artes coloridas */
+            .portfolio-scanner { cursor: default; }
+            #scanner-line { display: none; }
+            .background-layer { display: none; }
+            .foreground-layer { clip-path: none; position: relative; }
         }
+
     </style>
 </head>
 <body>
-
-    <!-- ============================================= -->
-    <!-- ============== CABEÇALHO (HEADER) =========== -->
-    <!-- ============================================= -->
     <header class="header">
         <div class="container">
-            <!-- Logo do designer -->
-            <img src="https://i.imgur.com/DaW9WFN.png" alt="Logo de Arthur Rodrigues" class="header-logo">
-            <!-- substitua essa imagem depois -->
+            <img src="https://i.imgur.com/DaW9WFN.png" alt="Logo R - Ricardo Alves" class="header-logo">
+            <a href="#plans" class="cta-button">Ver Planos</a>
         </div>
     </header>
 
     <main>
-        <!-- ============================================= -->
-        <!-- ============== SEÇÃO SOBRE MIM ============== -->
-        <!-- ============================================= -->
-        <section class="section hero">
+        <!-- SEÇÃO HERO -->
+        <section class="hero">
             <div class="container">
-                <h1>Arthur Rodrigues</h1>
-                <p>
-                    Sou designer profissional com mais de 6 anos de experiência em artes estáticas voltadas para empresas e agências. Crio identidades visuais marcantes, conteúdos gráficos de alta performance e entrego o que toda marca precisa: presença visual poderosa.
-                </p>
+                <h1 class="hero-title">Desbloqueie o <span>Potencial Visual</span> da sua Marca</h1>
+                <p class="hero-subtitle">Meu nome é Ricardo, designer com mais de 6 anos de experiência. Transformo conceitos em artes de alta performance para agências e empresas que buscam impacto real.</p>
+                <a href="#portfolio" class="cta-button">Explorar Projetos</a>
             </div>
         </section>
 
-        <!-- ============================================= -->
-        <!-- =========== SEÇÃO DE PORTFÓLIO ============= -->
-        <!-- ============================================= -->
-        <section class="section portfolio">
-            <div class="container">
-                <h2 class="section-title">Portfólio de Artes</h2>
-
-                <!-- Categoria 1: Empresas de Saúde -->
-                <div class="category-block">
-                    <h3 class="category-title">Empresas de Saúde</h3>
-                    <div class="art-gallery">
-                        <div class="art-card"><img src="https://placehold.co/600x800/0a0f2c/FFF?text=Arte+1" alt="Arte para empresa de saúde 1"> <!-- substitua essa imagem depois --></div>
-                        <div class="art-card"><img src="https://placehold.co/600x600/0a0f2c/FFF?text=Arte+2" alt="Arte para empresa de saúde 2"> <!-- substitua essa imagem depois --></div>
-                        <div class="art-card"><img src="https://placehold.co/600x800/0a0f2c/FFF?text=Arte+3" alt="Arte para empresa de saúde 3"> <!-- substitua essa imagem depois --></div>
-                        <div class="art-card"><img src="https://placehold.co/600x600/0a0f2c/FFF?text=Arte+4" alt="Arte para empresa de saúde 4"> <!-- substitua essa imagem depois --></div>
+        <!-- SEÇÃO PORTFÓLIO INTERATIVO -->
+        <section id="portfolio" class="portfolio-scanner">
+            <div id="scanner-line"></div>
+            <div class="container layer-container">
+                <!-- Camada de Fundo (Preto e Branco) -->
+                <div class="portfolio-layer background-layer">
+                    <div class="art-grid">
+                        <!-- COLOQUE SUAS IMAGENS AQUI -->
+                        <div class="art-item"><img src="https://i.imgur.com/sKFTs4p.png" alt="Arte de projeto 1"></div>
+                        <div class="art-item"><img src="https://i.imgur.com/rHXeAkr.png" alt="Arte de projeto 2"></div>
+                        <div class="art-item"><img src="https://i.imgur.com/vHqLgIZ.png" alt="Arte de projeto 3"></div>
+                        <div class="art-item"><img src="https://i.imgur.com/n1M3bLg.png" alt="Arte de projeto 4"></div>
+                        <div class="art-item"><img src="https://i.imgur.com/IOcsZ8u.png" alt="Arte de projeto 5"></div>
+                        <div class="art-item"><img src="https://i.imgur.com/Arez2gm.png" alt="Arte de projeto 6"></div>
+                        <div class="art-item"><img src="https://i.imgur.com/7dGudBS.png" alt="Arte de projeto 7"></div>
+                        <div class="art-item"><img src="https://i.imgur.com/7rtYqOn.jpeg" alt="Arte de projeto 8"></div>
                     </div>
                 </div>
-
-                <!-- Categoria 2: Infoprodutos -->
-                <div class="category-block">
-                    <h3 class="category-title">Infoprodutos</h3>
-                    <div class="art-gallery">
-                        <div class="art-card"><img src="https://placehold.co/600x600/0a0f2c/FFF?text=Arte+1" alt="Arte para infoproduto 1"> <!-- substitua essa imagem depois --></div>
-                        <div class="art-card"><img src="https://placehold.co/600x800/0a0f2c/FFF?text=Arte+2" alt="Arte para infoproduto 2"> <!-- substitua essa imagem depois --></div>
-                        <div class="art-card"><img src="https://placehold.co/600x600/0a0f2c/FFF?text=Arte+3" alt="Arte para infoproduto 3"> <!-- substitua essa imagem depois --></div>
+                <!-- Camada da Frente (Colorida) -->
+                <div class="portfolio-layer foreground-layer">
+                    <div class="art-grid">
+                        <!-- REPITA AS MESMAS IMAGENS, NA MESMA ORDEM -->
+                        <div class="art-item"><img src="https://i.imgur.com/sKFTs4p.png" alt="Arte de projeto 1"></div>
+                        <div class="art-item"><img src="https://i.imgur.com/rHXeAkr.png" alt="Arte de projeto 2"></div>
+                        <div class="art-item"><img src="https://i.imgur.com/vHqLgIZ.png" alt="Arte de projeto 3"></div>
+                        <div class="art-item"><img src="https://i.imgur.com/n1M3bLg.png" alt="Arte de projeto 4"></div>
+                        <div class="art-item"><img src="https://i.imgur.com/IOcsZ8u.png" alt="Arte de projeto 5"></div>
+                        <div class="art-item"><img src="https://i.imgur.com/Arez2gm.png" alt="Arte de projeto 6"></div>
+                        <div class="art-item"><img src="https://i.imgur.com/7dGudBS.png" alt="Arte de projeto 7"></div>
+                        <div class="art-item"><img src="https://i.imgur.com/7rtYqOn.jpeg" alt="Arte de projeto 8"></div>
                     </div>
-                </div>
-
-                 <!-- Categoria 3: Petshops -->
-                 <div class="category-block">
-                    <h3 class="category-title">Petshops</h3>
-                    <div class="art-gallery">
-                        <div class="art-card"><img src="https://placehold.co/600x800/0a0f2c/FFF?text=Arte+1" alt="Arte para petshop 1"> <!-- substitua essa imagem depois --></div>
-                        <div class="art-card"><img src="https://placehold.co/600x800/0a0f2c/FFF?text=Arte+2" alt="Arte para petshop 2"> <!-- substitua essa imagem depois --></div>
-                    </div>
-                </div>
-                
-                <!-- Adicione mais categorias conforme necessário -->
-            </div>
-        </section>
-
-        <!-- ============================================= -->
-        <!-- ======== SEÇÃO CALCULADORA DE PREÇO ========= -->
-        <!-- ============================================= -->
-        <section class="section calculator">
-            <div class="container">
-                <h2 class="section-title">Calculadora de Investimento</h2>
-                <div class="calculator-wrapper">
-                    <form>
-                        <div class="form-group">
-                            <label for="static-arts">Quantas artes estáticas?</label>
-                            <input type="number" id="static-arts" name="static-arts" min="0" placeholder="Ex: 10">
-                        </div>
-                        <div class="form-group">
-                            <label for="variations">Quantas com variações (stories, etc)?</label>
-                            <input type="number" id="variations" name="variations" min="0" placeholder="Ex: 5">
-                        </div>
-                        <div class="form-group">
-                            <label for="carousels">Quantos carrosséis?</label>
-                            <input type="number" id="carousels" name="carousels" min="0" placeholder="Ex: 2">
-                        </div>
-                        <div class="form-group">
-                            <label for="copy-arts">Quantas artes com copy (texto persuasivo)?</label>
-                            <input type="number" id="copy-arts" name="copy-arts" min="0" placeholder="Ex: 4">
-                        </div>
-
-                        <div class="total-price">
-                            <h3>Valor Total Estimado</h3>
-                            <div class="price-display">R$ 0,00</div>
-                        </div>
-                    </form>
                 </div>
             </div>
         </section>
 
-        <!-- ============================================= -->
-        <!-- ============ SEÇÃO PLANOS PRONTOS =========== -->
-        <!-- ============================================= -->
-        <section class="section plans">
+        <!-- SEÇÃO CARROSSEL DE LOGOS -->
+        <section class="section-carousel">
+            <div class="marquee">
+                <div class="marquee-track">
+                    <!-- Coloque os logos das marcas aqui (duplicados para efeito infinito) -->
+                    <div class="marquee-item"><img src="https://i.imgur.com/DaW9WFN.png" alt="Logo Marca 1"></div>
+                    <div class="marquee-item"><img src="https://i.imgur.com/DaW9WFN.png" alt="Logo Marca 2"></div>
+                    <div class="marquee-item"><img src="https://i.imgur.com/DaW9WFN.png" alt="Logo Marca 3"></div>
+                    <div class="marquee-item"><img src="https://i.imgur.com/DaW9WFN.png" alt="Logo Marca 4"></div>
+                    <div class="marquee-item"><img src="https://i.imgur.com/DaW9WFN.png" alt="Logo Marca 5"></div>
+                    <div class="marquee-item"><img src="https://i.imgur.com/DaW9WFN.png" alt="Logo Marca 6"></div>
+                    <!-- Duplicatas -->
+                    <div class="marquee-item"><img src="https://i.imgur.com/DaW9WFN.png" alt="Logo Marca 1"></div>
+                    <div class="marquee-item"><img src="https://i.imgur.com/DaW9WFN.png" alt="Logo Marca 2"></div>
+                    <div class="marquee-item"><img src="https://i.imgur.com/DaW9WFN.png" alt="Logo Marca 3"></div>
+                    <div class="marquee-item"><img src="https://i.imgur.com/DaW9WFN.png" alt="Logo Marca 4"></div>
+                    <div class="marquee-item"><img src="https://i.imgur.com/DaW9WFN.png" alt="Logo Marca 5"></div>
+                    <div class="marquee-item"><img src="https://i.imgur.com/DaW9WFN.png" alt="Logo Marca 6"></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SEÇÃO MOTION DESIGN -->
+        <section class="section motion">
             <div class="container">
-                <h2 class="section-title">Planos Prontos</h2>
+                <h2 class="section-title">Motion Design que <span>Cativa</span></h2>
+                <div class="motion-grid">
+                    <div class="motion-video"><video src="https://video.wixstatic.com/video/512b9f_ac37a61a1aed45748dfa627bc6c2c070/1080p/mp4/file.mp4" autoplay loop muted playsinline></video></div>
+                    <div class="motion-video"><video src="https://video.wixstatic.com/video/512b9f_ac37a61a1aed45748dfa627bc6c2c070/1080p/mp4/file.mp4" autoplay loop muted playsinline></video></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO PLANOS -->
+        <section id="plans" class="section">
+            <div class="container">
+                <h2 class="section-title">Planos de <span>Impacto</span> Visual</h2>
                 <div class="plans-grid">
-                    
-                    <!-- Plano Starter -->
                     <div class="plan-card">
                         <h3>Starter Plan</h3>
-                        <div class="plan-price">R$230 <span>/ 10 artes</span></div>
-                        <p class="plan-description">Ideal para pequenas empresas iniciando sua presença digital.</p>
-                        <a href="#" class="plan-button">Quero esse plano</a>
+                        <div class="plan-price">R$230</div>
+                        <p class="plan-description">10 artes estáticas por mês. Ideal para iniciar com consistência e profissionalismo.</p>
+                        <a href="#" class="plan-button">Solicitar Demanda</a>
                     </div>
-
-                    <!-- Plano Growth (com destaque) -->
                     <div class="plan-card highlighted">
                         <h3>Growth Plan</h3>
-                        <div class="plan-price">R$450 <span>/ 20 artes</span></div>
-                        <p class="plan-description">Perfeito para quem quer constância e um fluxo contínuo de conteúdo.</p>
-                        <a href="#" class="plan-button">Quero esse plano</a>
+                        <div class="plan-price">R$450</div>
+                        <p class="plan-description">20 artes estáticas por mês. A escolha perfeita para crescimento acelerado e presença digital constante.</p>
+                        <a href="#" class="plan-button">Solicitar Demanda</a>
                     </div>
-
-                    <!-- Plano Full Impact -->
                     <div class="plan-card">
                         <h3>Full Impact</h3>
-                        <div class="plan-price">R$650 <span>/ 30 artes</span></div>
-                        <p class="plan-description">Presença digital completa para máximo impacto e engajamento.</p>
-                        <a href="#" class="plan-button">Quero esse plano</a>
+                        <div class="plan-price">R$650</div>
+                        <p class="plan-description">30 artes estáticas por mês. Domínio visual completo para marcas que não se contentam com o básico.</p>
+                        <a href="#" class="plan-button">Solicitar Demanda</a>
                     </div>
-
                 </div>
             </div>
         </section>
-
-        <!-- ============================================= -->
-        <!-- =============== SEÇÃO CONTATO =============== -->
-        <!-- ============================================= -->
-        <section class="section contact">
-            <div class="container">
-                <h2 class="section-title">Vamos Conversar?</h2>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Seu Nome</label>
-                        <input type="text" id="name" name="name" required placeholder="Digite seu nome completo">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Seu E-mail</label>
-                        <input type="email" id="email" name="email" required placeholder="exemplo@email.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Sua Mensagem</label>
-                        <textarea id="message" name="message" rows="5" required placeholder="Conte-me sobre seu projeto..." style="width: 100%; padding: 12px; background-color: var(--bg-dark-blue); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-white); font-size: 1rem; font-family: var(--font-family);"></textarea>
-                    </div>
-                    <button type="submit" class="contact-button">Enviar Mensagem</button>
-                </form>
-            </div>
-        </section>
-
     </main>
 
-    <!-- ============================================= -->
-    <!-- ================== RODAPÉ =================== -->
-    <!-- ============================================= -->
     <footer class="footer">
         <div class="container">
-            <p>© 2024 Arthur Rodrigues. Todos os direitos reservados.</p>
+            <p>© 2024 Ricardo Alves. Todos os direitos reservados.</p>
         </div>
     </footer>
 
-    <!-- ============================================= -->
-    <!-- ========= BOTÃO FLUTUANTE WHATSAPP ========== -->
-    <!-- ============================================= -->
-    <a href="https://wa.me/SEUNUMERO" target="_blank" class="whatsapp-float" aria-label="Fale comigo no WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <script>
+        // SCRIPT PARA O EFEITO SCANNER
+        const scannerLine = document.getElementById('scanner-line');
+        const foregroundLayer = document.querySelector('.foreground-layer');
+        const portfolioScanner = document.querySelector('.portfolio-scanner');
 
+        // Executa apenas em dispositivos com mouse
+        if (window.matchMedia("(pointer: fine)").matches) {
+            portfolioScanner.addEventListener('mousemove', (e) => {
+                const rect = portfolioScanner.getBoundingClientRect();
+                const x = e.clientX - rect.left; // Posição X do mouse dentro do container
+                const percentage = (x / rect.width) * 100;
+
+                // Move a linha do scanner
+                scannerLine.style.left = `${e.clientX}px`;
+                
+                // Atualiza o clip-path da camada da frente
+                foregroundLayer.style.clipPath = `polygon(0 0, ${percentage}% 0, ${percentage}% 100%, 0 100%)`;
+            });
+        }
+    </script>
 </body>
 </html>
